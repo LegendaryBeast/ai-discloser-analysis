@@ -241,98 +241,65 @@ def refresh():
 
 
 def methodology():
-    """Overview figure: how the data were built (A), the three-wave comparison (B) and the main results (C).
-    All numbers are read from the results files."""
+    """Overview figure, kept deliberately simple: three data steps (A), the three-wave comparison (B), three findings (C)."""
     from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-    d = json.load(open(os.path.join(MARK, "derivation_stats.json")))
-    v = json.load(open(os.path.join(MARK, "validation.json")))
-    n_lex = sum(d["n_by_year"].values()) + d["excluded_pilot_author_abstracts"] + sum(x["n"] for x in v["years"].values())
     F = R["flow"]
-    m = R["main"]
-    f2 = lambda e: f"{e['b']:+.2f}".replace("-", "−")
-    rep, rep6 = R.get("replication"), R.get("replication2026")
-    LR = R.get("lexicon_refresh", {})
     PALE1, PALE2, PALEG = "#e8f0fb", "#fdeee6", "#f3f2ee"
+    fig = plt.figure(figsize=(FULL_W, 3.5))
+    ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 100); ax.set_ylim(0, 50); ax.axis("off")
 
-    fig = plt.figure(figsize=(FULL_W, 4.7))
-    ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 100); ax.set_ylim(0, 70); ax.axis("off")
+    def box(x, y, w, h, title, body, face=PALEG, edge=GRID):
+        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.2,rounding_size=0.8", fc=face, ec=edge, lw=0.9))
+        ax.text(x + w / 2, y + h * 0.66, title, ha="center", va="center", fontsize=7.4, weight="bold", color=INK)
+        ax.text(x + w / 2, y + h * 0.30, body, ha="center", va="center", fontsize=6.6, color=INK2)
 
-    def box(x, y, w, h, title, body, face=PALEG, edge=INK2, tsize=7.2, bsize=6.4):
-        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.25,rounding_size=0.8", fc=face, ec=edge, lw=0.8))
-        ax.text(x + 1.0, y + h - 1.2, title, ha="left", va="top", fontsize=tsize, weight="bold", color=INK)
-        ax.text(x + 1.0, y + h - 4.6, body, ha="left", va="top", fontsize=bsize, color=INK, linespacing=1.35)
-
-    def arrow(x0, y0, x1, y1, c=INK2):
-        ax.add_patch(FancyArrowPatch((x0, y0), (x1, y1), arrowstyle="-|>", mutation_scale=9, color=c, lw=1.0))
+    def arrow(x0, y0, x1, y1):
+        ax.add_patch(FancyArrowPatch((x0, y0), (x1, y1), arrowstyle="-|>", mutation_scale=9, color=INK2, lw=0.9))
 
     def band(y, label):
-        ax.text(0.8, y, label, fontsize=8, weight="bold", color=INK, va="center")
+        ax.text(1, y, label, fontsize=8, weight="bold", color=INK, va="center")
 
-    # ---- A. data
-    band(68.2, "A   Building the data")
-    box(1, 49.5, 31, 16.5, "1  Marker-word lexicon",
-        f"{n_lex:,} random PubMed abstracts\n(2019–22 and 2024–25)\n• words in excess in both 2024 and 2025\n"
-        f"• 187 style words kept, frozen (SHA-256)\n• validated on the held-out half;\n  2026 benchmark: {POP26['n']:,} abstracts")
-    box(34.5, 49.5, 31, 16.5, "2  AI-disclosing papers",
-        "Open-access PMC papers, 2024–26, with an\nAI-use disclosure for writing\n• disclosure verified in the full text\n"
-        "• every sentence read (false positives out)\n• anchor = corresponding author,\n  ≥2 abstracts in each pre-LLM wave", face=PALE2, edge=S2)
-    box(68, 49.5, 31, 16.5, "3  Matched non-disclosers",
-        "Same journal, published within ±120 days,\nno AI disclosure in the full text\n• full text re-checked; reused authors out\n"
-        f"• same anchor and eligibility rules\n• {F['analysis_pairs']} pairs: {F['by_cohort']['2024-25']} from 2024–25,\n"
-        f"  {F['by_cohort']['2026']} from 2026", face=PALE1, edge=S1)
-    arrow(65.6, 57.5, 67.9, 57.5)
+    # A: three steps
+    band(47.6, "A   Data")
+    w = 29
+    for i, (title, body, face, edge) in enumerate((
+            ("Marker words", "187 LLM-style words, frozen", PALEG, INK2),
+            ("Disclosers", "papers disclosing AI use, verified", PALE2, S2),
+            ("Matched controls", f"same journal, no disclosure ({F['analysis_pairs']} pairs)", PALE1, S1))):
+        x = 2 + i * (w + 4.5)
+        box(x, 36.5, w, 8.6, title, body, face, edge)
+        if i == 2:
+            arrow(x - 4.0, 40.8, x - 0.5, 40.8)
 
-    # ---- B. design: timeline
-    band(43.2, "B   Comparing each author with their own earlier abstracts")
-    y0, y1 = 31.5, 25.5                        # discloser and control rows
-    xs = {2014: 13, 2026: 75}
-    X = lambda yr: xs[2014] + (yr - 2014) * (xs[2026] - xs[2014]) / 12
-    for (a, b, lab, sub) in ((2014, 2016.99, "W1  2014–16", "placebo"), (2019, 2021.99, "W2  2019–21", "reference"),
-                             (2024, 2026.99, "W3  2024–26", "index paper")):
-        ax.add_patch(FancyBboxPatch((X(a), 21.8), X(b) - X(a), 14.5, boxstyle="round,pad=0.2,rounding_size=0.6",
+    # B: three waves per author
+    band(31.6, "B   Same author, three waves")
+    X = lambda yr: 14 + (yr - 2014) * (74 - 14) / 12
+    for a, lab in ((2014, "2014–16\nbefore LLMs"), (2019, "2019–21\nreference"), (2024, "2024–26\nindex paper")):
+        ax.add_patch(FancyBboxPatch((X(a), 15.5), X(a + 2.99) - X(a), 12.5, boxstyle="round,pad=0.2,rounding_size=0.6",
                                     fc=PALEG, ec=GRID, lw=0.8))
-        ax.text((X(a) + X(b)) / 2, 38.3, lab, ha="center", fontsize=7, weight="bold")
-        ax.text((X(a) + X(b)) / 2, 36.9, sub, ha="center", fontsize=6.2, color=INK2)
-    ax.plot([X(2022.9)] * 2, [21.0, 38.0], color=INK2, lw=0.8, ls=(0, (2, 2)))
-    ax.text(X(2022.9), 39.6, "ChatGPT\nNov 2022", ha="center", fontsize=6, color=INK2, linespacing=1.1)
-    for y, c, lab in ((y0, S2, "Discloser"), (y1, S1, "Control")):
-        ax.text(1.2, y, lab, fontsize=7, color=c, weight="bold", va="center")
-        ax.plot([X(2014.2), X(2026.8)], [y, y], color=c, lw=0.6, alpha=0.4)
-        for yr, k in ((2014.3, 5), (2019.3, 5), (2025.5, 1)):
+        ax.text(X(a + 1.5), 25.6, lab, ha="center", va="center", fontsize=6.6, color=INK, linespacing=1.15)
+    ax.plot([X(2022.9)] * 2, [15, 29], color=INK2, lw=0.8, ls=(0, (2, 2)))
+    ax.text(X(2022.9), 29.9, "ChatGPT", ha="center", fontsize=6.2, color=INK2)
+    for y, c, lab in ((20.6, S2, "Discloser"), (17.4, S1, "Control")):
+        ax.text(11.5, y, lab, fontsize=6.8, color=c, weight="bold", va="center", ha="right")
+        ax.plot([X(2014.1), X(2026.9)], [y, y], color=c, lw=0.6, alpha=0.35)
+        for yr, k in ((2014.6, 4), (2019.6, 4), (2025.5, 1)):
             for j in range(k):
-                ax.plot(X(yr) + j * 1.3, y, "o", color=c, ms=3.2)
-    ax.text(X(2015.5), 22.6, f"median {R['median_texts_author_wave']['W1']:.0f} abstracts", ha="center", fontsize=5.8, color=INK2)
-    ax.text(X(2020.5), 22.6, f"median {R['median_texts_author_wave']['W2']:.0f} abstracts", ha="center", fontsize=5.8, color=INK2)
-    ax.text(X(2025.5), 22.6, "1 abstract (index paper)", ha="center", fontsize=5.8, color=INK2)
-    ax.text(82.5, 36.0, "Outcomes per abstract", fontsize=6.5, weight="bold", va="top")
-    ax.text(82.5, 33.6, "• marker-word index\n• lexical diversity\n• reading ease\n• sentence length\n• function-word\n  drift",
-            fontsize=6, va="top", linespacing=1.3)
-    ax.text(X(2017.5), 19.0, "β₁: change W1→W2, discloser − control\n(should be 0 before LLMs)", ha="center", fontsize=6.2,
+                ax.plot(X(yr) + j * 1.6, y, "o", color=c, ms=3)
+    ax.text(89.5, 21.5, "Compare the\nchange in style:\ndiscloser − control", ha="center", va="center", fontsize=6.6,
             color=INK, linespacing=1.25)
-    ax.text(X(2023.0), 19.0, "β₃: change W2→W3, discloser − control\n= discloser excess (author fixed effects)", ha="center",
-            fontsize=6.2, color=INK, linespacing=1.25)
 
-    # ---- C. results
-    band(13.6, "C   What we found")
-    w, h, yb = 23.6, 11.2, 0.6
-    box(1, yb, w, h, "Main sample: marker words",
-        f"before LLMs: β₁ = {f2(m['pooled']['mwi']['d_w1'])} (≈ 0)\n2024–25 papers: β₃ = {f2(m['2024-25']['mwi']['d_w3'])} SD\n"
-        f"2026 papers: β₃ = {f2(m['2026']['mwi']['d_w3'])} SD")
-    if rep and rep6:
-        box(25.8, yb, w, h, "Replication samples",
-            f"2024–25 ({rep['n_pairs']} pairs): β₃ = {f2(rep['beta3'])} SD\n2026 ({rep6['n_pairs']} pairs): β₃ = {f2(rep6['beta3'])} SD\n"
-            "all 3 pre-set hypotheses held")
-    box(50.6, yb, w, h, "Lexicon-free measures",
-        f"gap persists in both periods;\nlexical diversity, β₃:\n2024–25 {f2(m['2024-25']['mtld']['d_w3'])}, 2026 {f2(m['2026']['mtld']['d_w3'])} SD")
-    if LR:
-        box(75.4, yb, w, h, "Words rising 2025→26",
-            f"2026 papers: β₃ = {f2(LR['main']['rising_2026']['2026'])} SD\n(replication {f2(LR['replication2026']['rising_2026']['pooled'])})\n"
-            f"2024–25 papers: β₃ = {f2(LR['main']['rising_2026']['2024-25'])} SD")
+    # C: three findings
+    band(11.0, "C   Findings")
+    for i, (title, body) in enumerate((("Marker words", "gap in 2024–25, none in 2026"),
+                                       ("New samples", "same result, tested as planned"),
+                                       ("Other style measures", "gap in both periods"))):
+        box(2 + i * (w + 4.5), 0.8, w, 7.6, title, body)
     save(fig, "fig_method")
 
 
 def descriptor():
-    """Data descriptor: sample flow, publication years, search phrasings, abstracts per author, tools and purposes."""
+    """Data descriptor in a compact 2 x 3 grid: flow, years, search phrasing, baseline size, tools, purposes."""
     import sys
     sys.path.insert(0, EXP)
     from coding import code
@@ -342,7 +309,7 @@ def descriptor():
     D = json.load(open(os.path.join(EXP, "disclosers.json")))["papers"]
     main_disc = [D[i]["disclosure"] for i in P["paper_index"]]
     reps = []
-    for suf, off, tag in (("", 10000, "Replication 2024–25"), ("2026", 20000, "Replication 2026")):
+    for suf, off, tag in (("", 10000, "Repl. 2024–25"), ("2026", 20000, "Repl. 2026")):
         f = os.path.join(EXP, f"replication{suf}_units.json")
         mf = os.path.join(EXP, f"revision_replication{suf}_metrics.csv")
         if os.path.exists(f) and os.path.exists(mf):
@@ -353,93 +320,88 @@ def descriptor():
                                  "disclosure": p["disc"]["disclosure"]})
     Rp = pd.DataFrame(reps)
     M = pd.read_csv(os.path.join(EXP, "revision_metrics.csv"), usecols=["author", "group", "wave"])
-    fig, axs = plt.subplots(3, 2, figsize=(FULL_W, 6.0))
-    lab = lambda ax, t: ax.set_title(t, loc="left", fontsize=7.5, color=INK, weight="bold")
 
-    def grid(ax, a="x"):
-        getattr(ax, f"{a}axis").grid(True, color=GRID, lw=0.6); ax.set_axisbelow(True)
+    fig, axs = plt.subplots(2, 3, figsize=(FULL_W, 3.9), layout="constrained")
+    fig.get_layout_engine().set(w_pad=0.04, h_pad=0.06, wspace=0.06, hspace=0.08)
+    FS = 6.2
+
+    def style(ax, title, axis="x"):
+        ax.set_title(title, loc="left", fontsize=7.2, color=INK, weight="bold", pad=4)
+        ax.tick_params(labelsize=FS, length=2)
+        getattr(ax, f"{axis}axis").grid(True, color=GRID, lw=0.5)
+        ax.set_axisbelow(True)
+
+    def hbars(ax, labels, vals, color, fmt, xmax):
+        y = np.arange(len(vals))
+        ax.barh(y, vals, color=color, height=0.66)
+        for i, v in enumerate(vals):
+            ax.text(v + xmax * 0.02, i, fmt(v), va="center", fontsize=FS, color=INK)
+        ax.set_yticks(y, labels); ax.invert_yaxis(); ax.set_xlim(0, xmax)
+        ax.tick_params(axis="y", length=0)
 
     # (a) sample flow
-    ax = axs[0, 0]
     cf, F = R["collection_flow"], R["flow"]
-    steps = [("Candidate papers", cf["pool"]), ("Screened in full text", cf["screened"]),
-             ("Disclosure found", cf["detected"]), ("Distinct authors", cf["unique_anchor_authors"]),
-             ("Eligible author", cf["eligible"]), ("Matched to a control", cf["matched"]),
-             ("Complete in all waves", F["complete_pairs"]), ("After audit", F["analysis_pairs"])]
-    y = np.arange(len(steps))
-    ax.barh(y, [v for _, v in steps], color=S1, height=0.62)
-    for i, (_, v) in enumerate(steps):
-        ax.text(v + 90, i, f"{v:,}", va="center", fontsize=6.3, color=INK)
-    ax.set_yticks(y, [n for n, _ in steps], fontsize=6.3); ax.invert_yaxis()
-    ax.set_xlim(0, cf["pool"] * 1.25); ax.set_xticks([]); ax.spines["bottom"].set_visible(False)
-    lab(ax, "(a) Main-sample flow")
+    steps = [("Candidates", cf["pool"]), ("Screened", cf["screened"]), ("Disclosure found", cf["detected"]),
+             ("Eligible authors", cf["eligible"]), ("Matched pairs", cf["matched"]), ("Analysed pairs", F["analysis_pairs"])]
+    hbars(axs[0, 0], [s for s, _ in steps], [v for _, v in steps], S1, lambda v: f"{v:,}", cf["pool"] * 1.3)
+    axs[0, 0].set_xticks([]); style(axs[0, 0], "(a) Sample flow")
 
-    # (b) pairs by publication year of the index paper
+    # (b) pairs by year
     ax = axs[0, 1]
     yrs = [2024, 2025, 2026]
-    main_y = [int((P["year"] == yy).sum()) for yy in yrs]
-    rep_y = [int((Rp["year"] == yy).sum()) if len(Rp) else 0 for yy in yrs]
+    mv = np.array([(P["year"] == y).sum() for y in yrs])
+    rv = np.array([(Rp["year"] == y).sum() if len(Rp) else 0 for y in yrs])
     x = np.arange(3)
-    ax.bar(x, main_y, color=S1, width=0.6, label="Main sample")
-    ax.bar(x, rep_y, bottom=[v + 3 for v in main_y], color=S3, width=0.6, label="Replication samples")
+    ax.bar(x, mv, width=0.62, color=S1, label="Main")
+    ax.bar(x, rv, width=0.62, bottom=mv + 4, color=S3, label="Replication")
     for i in range(3):
-        ax.text(i, main_y[i] + 3 + rep_y[i] + 8, f"{main_y[i]} + {rep_y[i]}", ha="center", fontsize=6.3, color=INK)
-    ax.set_xticks(x, [str(v) for v in yrs]); ax.set_ylabel("Matched pairs", fontsize=6.5)
-    ax.set_ylim(0, max(m_ + r_ for m_, r_ in zip(main_y, rep_y)) * 1.45); grid(ax, "y")
-    ax.legend(frameon=False, fontsize=6.2, loc="upper left")
-    lab(ax, "(b) Pairs by year of the index paper")
+        ax.text(i, mv[i] + rv[i] + 14, f"{mv[i] + rv[i]}", ha="center", fontsize=FS, color=INK)
+    ax.set_xticks(x, [str(y) for y in yrs]); ax.set_ylim(0, (mv + rv).max() * 1.22)
+    ax.legend(frameon=False, fontsize=FS, loc="upper left", handlelength=1, borderaxespad=0.2)
+    style(ax, "(b) Pairs by year", "y")
 
-    # (c) search phrasing by sample
-    ax = axs[1, 0]
-    Q = [("chatgpt_language", "ChatGPT phrasing", S1), ("elsevier_template", "Elsevier template", S2),
-         ("genai_generic", "“Generative AI” phrasing", S3)]
-    groups_ = [("Main 2024–25", P[P.cohort == "2024-25"]["query"]), ("Main 2026", P[P.cohort == "2026"]["query"])]
+    # (c) search phrasing
+    ax = axs[0, 2]
+    Q = [("chatgpt_language", "ChatGPT", S1), ("elsevier_template", "Elsevier", S2), ("genai_generic", "Gen. AI", S3)]
+    rows = [("Main 2024–25", P[P.cohort == "2024-25"]["query"]), ("Main 2026", P[P.cohort == "2026"]["query"])]
     if len(Rp):
-        groups_ += [(t, Rp[Rp.tag == t]["query"]) for t in ("Replication 2024–25", "Replication 2026")]
-    for i, (gname, qs) in enumerate(groups_):
+        rows += [(t, Rp[Rp.tag == t]["query"]) for t in ("Repl. 2024–25", "Repl. 2026")]
+    for i, (_, qs) in enumerate(rows):
         left = 0
         for key, name, c in Q:
-            share = 100 * (qs == key).mean()
-            ax.barh(i, share, left=left, color=c, height=0.62, edgecolor=SURF, lw=1, label=name if i == 0 else None)
-            if share >= 12:
-                ax.text(left + share / 2, i, f"{share:.0f}%", ha="center", va="center", fontsize=6, color="white")
-            left += share
-    ax.set_yticks(range(len(groups_)), [f"{g} (n = {len(q)})" for g, q in groups_], fontsize=6.2); ax.invert_yaxis()
-    ax.set_xlim(0, 100); ax.set_xticks([0, 50, 100]); ax.set_xlabel("Share of disclosers (%)", fontsize=6.5)
-    ax.legend(frameon=False, fontsize=6.2, loc="upper center", bbox_to_anchor=(0.35, -0.3), ncol=3, handlelength=1,
-              columnspacing=0.8)
-    lab(ax, "(c) Search phrasing that found the paper")
+            sh = 100 * (qs == key).mean()
+            ax.barh(i, sh, left=left, color=c, height=0.66, edgecolor=SURF, lw=0.8, label=name if i == 0 else None)
+            if sh >= 14:
+                ax.text(left + sh / 2, i, f"{sh:.0f}", ha="center", va="center", fontsize=FS - 0.3, color="white")
+            left += sh
+    ax.set_yticks(range(len(rows)), [r for r, _ in rows]); ax.invert_yaxis(); ax.set_xlim(0, 100)
+    ax.set_xticks([0, 50, 100]); ax.tick_params(axis="y", length=0)
+    ax.legend(frameon=False, fontsize=FS - 0.3, ncol=3, loc="upper left", bbox_to_anchor=(-0.02, -0.1),
+              handlelength=0.9, columnspacing=0.7, borderaxespad=0)
+    style(ax, "(c) Search phrasing (%)")
 
-    # (d) abstracts per author, pre-LLM waves
-    ax = axs[1, 1]
+    # (d) baseline abstracts per author
+    ax = axs[1, 0]
     n = M[M.wave != "W3"].groupby(["group", "author"]).size()
-    bins = np.arange(0, 104, 4)
+    bins = np.arange(0, 104, 5)
     for g, c, name in ((1, S2, "Disclosers"), (0, S1, "Controls")):
-        ax.hist(n.xs(g).clip(upper=100), bins=bins, histtype="step", lw=1.6, color=c,
-                label=f"{name} (median {int(np.median(n.xs(g)))})")
-    ax.set_xlabel("Pre-LLM abstracts per author (last bin: 100+)", fontsize=6.2)
-    ax.set_ylabel("Authors", fontsize=6.5); grid(ax, "y")
-    ax.legend(frameon=False, fontsize=6.2, loc="upper right")
-    lab(ax, "(d) Pre-LLM baseline per author")
+        ax.hist(n.xs(g).clip(upper=100), bins=bins, histtype="step", lw=1.3, color=c,
+                label=f"{name}, median {int(np.median(n.xs(g)))}")
+    ax.set_xticks([0, 25, 50, 75, 100], ["0", "25", "50", "75", "100+"])
+    ax.legend(frameon=False, fontsize=FS, loc="upper right", handlelength=1.2, borderaxespad=0.2)
+    style(ax, "(d) Pre-LLM abstracts per author", "y")
 
-    # (e) tools and (f) purposes named in disclosures (main sample + replications)
+    # (e) tools, (f) purposes
     allc = [code(t) for t in main_disc + (list(Rp["disclosure"]) if len(Rp) else [])]
-    tools = Counter(t for c in allc for t in c["tools"])
-    purp = Counter(p for c in allc for p in c["purposes"])
-    names = {"polishing": "Language polishing", "grammar": "Grammar, proofreading",
-             "drafting/structuring": "Drafting, structuring", "translation": "Translation", "Unspecified": "Tool not named"}
-    for ax, cnt, title, top in ((axs[2, 0], tools, f"(e) AI tools named ({len(allc)} disclosures)", 8),
-                                (axs[2, 1], purp, "(f) Purpose disclosed", 4)):
-        items = cnt.most_common(top)
-        yy = np.arange(len(items))
-        vals = [100 * v / len(allc) for _, v in items]
-        ax.barh(yy, vals, color=S2, height=0.62)
-        for i, v in enumerate(vals):
-            ax.text(v + 1.5, i, f"{v:.0f}%", va="center", fontsize=6.2, color=INK)
-        ax.set_yticks(yy, [names.get(k, k) for k, _ in items], fontsize=6.3); ax.invert_yaxis()
-        ax.set_xlim(0, 100); ax.set_xticks([0, 50, 100]); ax.set_xlabel("Share of disclosures (%)", fontsize=6.3)
-        grid(ax); lab(ax, title)
-    fig.tight_layout(h_pad=1.8, w_pad=1.5)
+    tools = Counter(t for c in allc for t in c["tools"]).most_common(6)
+    purp = Counter(p for c in allc for p in c["purposes"]).most_common(4)
+    names = {"polishing": "Polishing", "grammar": "Grammar", "drafting/structuring": "Drafting",
+             "translation": "Translation", "Unspecified": "Not named"}
+    for ax, items, title in ((axs[1, 1], tools, f"(e) Tools named (% of {len(allc)})"),
+                             (axs[1, 2], purp, "(f) Purpose disclosed (%)")):
+        hbars(ax, [names.get(k, k) for k, _ in items], [100 * v / len(allc) for _, v in items], S2,
+              lambda v: f"{v:.0f}", 115)
+        ax.set_xticks([0, 50, 100]); style(ax, title)
     save(fig, "fig_data")
 
 
