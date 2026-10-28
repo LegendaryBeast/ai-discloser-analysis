@@ -1,0 +1,31 @@
+Papers: 50
+Corresponding author flagged in OpenAlex: 34/50 (68%)
+
+== first author (n=47) ==
+  ORCID linked:                37/47 (79%)
+  any paper 2014-16:           12/47 (26%)
+  any paper 2019-21:           26/47 (55%)
+  BOTH windows (any position): 11/47 (23%)
+  BOTH windows as 1st author:  7/47 (15%)
+  suspect merged profile:      0
+
+== corresponding author (n=34) ==
+  ORCID linked:                28/34 (82%)
+  any paper 2014-16:           17/34 (50%)
+  any paper 2019-21:           26/34 (76%)
+  BOTH windows (any position): 17/34 (50%)
+  BOTH windows as 1st author:  7/34 (21%)
+  suspect merged profile:      4
+
+== last author (n=49) ==
+  ORCID linked:                41/49 (84%)
+  any paper 2014-16:           36/49 (73%)
+  any paper 2019-21:           37/49 (76%)
+  BOTH windows (any position): 35/49 (71%)
+  BOTH windows as 1st author:  17/49 (35%)
+  suspect merged profile:      7
+
+Paper-level: first OR corresponding author present in both windows: 22/50 (44%)
+Paper-level: first OR corresponding author FIRST-authored in both windows: 11/50 (22%)
+
+Countries of first authors: CN:10, US:5, ?:4, IN:3, BR:3, ES:3, DE:2, TR:2, SE:2, IR:1, SA:1, AU:1, MY:1, TH:1, BE:1, SD:1, SI:1, AT:1, FI:1, TW:1, IL:1, EG:1

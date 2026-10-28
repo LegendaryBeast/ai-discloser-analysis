@@ -1,0 +1,6 @@
+{"auditor": "manual review of all 160 detected sentences",
+ "excluded": {"30": "paper about LLMs; sentence describes the study, not a disclosure",
+              "107": "reporting-guideline checklist item, not a disclosure",
+              "117": "paper about generative AI; matched author-contribution text",
+              "127": "explicit statement of non-use (declared non-user)",
+              "147": "journal-policy sentence, no statement of actual use"}}

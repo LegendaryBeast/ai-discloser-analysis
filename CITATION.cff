@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this package, please cite it as below."
+title: "Replication data and code: AI-use disclosure and within-author writing style in biomedical abstracts, 2014-2026"
+version: "1.0.0"
+date-released: "2026-10-28"
+license: MIT
+authors:
+  - family-names: "Prappo"
+    given-names: "Tanzim Hasan"
+    affiliation: "Department of Computer Science and Engineering, Shahjalal University of Science and Technology"
+keywords: [large language models, AI disclosure, scientific writing, stylometry, AI-text detection, difference-in-differences]

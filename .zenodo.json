@@ -1,0 +1,24 @@
+{
+ "title": "Replication data and code: AI-use disclosure and within-author writing style in biomedical abstracts, 2014-2026",
+ "upload_type": "dataset",
+ "version": "1.0.0",
+ "access_right": "open",
+ "license": "cc-by-4.0",
+ "creators": [
+  {
+   "name": "Prappo, Tanzim Hasan",
+   "affiliation": "Department of Computer Science and Engineering, Shahjalal University of Science and Technology"
+  }
+ ],
+ "keywords": [
+  "large language models",
+  "AI disclosure",
+  "scientific writing",
+  "stylometry",
+  "AI-text detection",
+  "difference-in-differences",
+  "reproducibility"
+ ],
+ "description": "Replication package for a matched three-wave within-author study of AI-disclosing biomedical authors (2014-2026): all collection and analysis code, the frozen marker lexicon, audited disclosure data, identifiers and SHA-256 hashes for every text, per-text metrics, the pre-collection replication plan and all numerical results. Texts are re-fetched and verified with rehydrate.py.",
+ "notes": "Code: MIT. Data: CC BY 4.0. Quoted disclosure sentences remain under their articles' licences."
+}

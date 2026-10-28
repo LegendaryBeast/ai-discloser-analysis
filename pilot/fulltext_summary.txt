@@ -1,0 +1,17 @@
+== Paper-level tiers, ALL papers ==
+  2014-16 (n=826): pmc_oa 161/826 (19%), preprint 0/826 (0%), pmc_other 80/826 (10%), other_oa 226/826 (27%), abstract_only 172/826 (21%), nothing 187/826 (23%)
+  2019-21 (n=1137): pmc_oa 378/1137 (33%), preprint 10/1137 (1%), pmc_other 100/1137 (9%), other_oa 333/1137 (29%), abstract_only 158/1137 (14%), nothing 158/1137 (14%)
+
+== Paper-level tiers, FIRST-AUTHORED papers ==
+  2014-16 (n=137): pmc_oa 24/137 (18%), preprint 0/137 (0%), pmc_other 10/137 (7%), other_oa 45/137 (33%), abstract_only 27/137 (20%), nothing 31/137 (23%)
+  2019-21 (n=164): pmc_oa 41/164 (25%), preprint 0/164 (0%), pmc_other 16/164 (10%), other_oa 69/164 (42%), abstract_only 18/164 (11%), nothing 20/164 (12%)
+
+== Author-level (retained authors n=49; first author in both windows: 25) ==
+  [any position] >=1 paper with machine-readable full text (PMC OA / preprint) in BOTH windows: 27/49 (55%)  (median papers in thinner window: 2)
+  [any position] >=1 paper with any free full text in BOTH windows: 44/49 (90%)  (median papers in thinner window: 4.0)
+  [any position] >=1 paper with abstract available in BOTH windows: 47/49 (96%)  (median papers in thinner window: 5)
+
+  [as first author] >=1 paper with machine-readable full text (PMC OA / preprint) in BOTH windows: 8/49 (16%)  (median papers in thinner window: 1.0)
+  [as first author] >=1 paper with any free full text in BOTH windows: 18/49 (37%)  (median papers in thinner window: 1.5)
+  [as first author] >=1 paper with abstract available in BOTH windows: 23/49 (47%)  (median papers in thinner window: 2)
+

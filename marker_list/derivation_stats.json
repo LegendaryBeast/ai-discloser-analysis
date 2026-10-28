@@ -1,0 +1,17 @@
+{
+ "n_by_year": {
+  "2019": 14994,
+  "2020": 16948,
+  "2021": 17504,
+  "2022": 15927,
+  "2024": 19557,
+  "2025": 24494
+ },
+ "excluded_pilot_author_abstracts": 97,
+ "thresholds": {
+  "min_ratio": 1.5,
+  "min_gap": 0.0005,
+  "min_docs": 30
+ },
+ "n_candidates": 347
+}

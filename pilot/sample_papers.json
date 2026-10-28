@@ -1,0 +1,560 @@
+{
+ "hit_counts": {
+  "elsevier_template": 3457,
+  "chatgpt_language": 1113,
+  "genai_generic": 8409
+ },
+ "seed": 2026,
+ "sample": [
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13528350",
+   "doi": "10.1016/j.jsea.2026.100066",
+   "title": "Primary distal humeral resection in total elbow arthroplasty for rheumatoid arthritis: a comparative study of functional outcomes and reoperation rates.",
+   "journal": "J Shoulder Elb Arthroplast",
+   "year": "2026",
+   "authors": "Gustavo Armando TA, de Jesus Martinez-Ruiz J, German Kevin YS, Carlos Omar SC.",
+   "disclosure": "Declaration of generative AI and AI-assisted technologies in the writing process During the preparation of this work, the author(s) used Gemini in order to edit Graphics and Pictures."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13437181",
+   "doi": "10.17245/jdapm.2026.26.075",
+   "title": "Comparative evaluation of the anesthetic efficacy of 4% buffered articaine versus 2% un-buffered lidocaine for dental injections in children: a double-blind randomized parallel group control trial.",
+   "journal": "J Dent Anesth Pain Med",
+   "year": "2026",
+   "authors": "Suresh A, Tirupathi SP.",
+   "disclosure": "ARTIFICIAL INTELLIGENCE DECLARATION: During the preparation of this work, the author used Claude AI for readability improvement, or minor grammatical adjustment."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13677402",
+   "doi": "10.1016/j.ahjo.2026.100934",
+   "title": "The impact of an adaptive patient-centered web application on medication optimization in patients with HFrEF: Rationale and design of the SmartHF trial.",
+   "journal": "Am Heart J Plus",
+   "year": "2026",
+   "authors": "Dorsch MP, Krambrink A, Ganai S, Greer KM, Ali MS, Stevens R, Nwoko U, Ogunniyi MO, Ewald G, Abdul-Nour K, Hummel SL, Koelling TM.",
+   "disclosure": "Declaration of Generative AI and AI-assisted technologies in the writing process During the preparation of this work, the author(s) used Grammarly to help with spelling, grammar, and readability."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13130417",
+   "doi": "10.1186/s13099-026-00829-1",
+   "title": "Detection and genetic characterization of the GP60 Gene of Cryptosporidium parvum isolated from HIV&lt;sup&gt;+&lt;/sup&gt;/AIDS patients - Kurdistan Province, Northwest Iran: predominance of subtype IId.",
+   "journal": "Gut Pathog",
+   "year": "2026",
+   "authors": "Bahrami F, Sherifi E, Khademerfan M, Abdoli A.",
+   "disclosure": "Declaration of generative AI and AI-assisted technologies in the writing process During the preparation of this work the author(s) used Gemini tool in order to identify grammatical errors in some parts of the text."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13242088",
+   "doi": "10.5152/fnjn.2026.25335",
+   "title": "The Relationship Between the Perception of Undergraduate Nursing Students of the Nursing Concept Map and Their Learning Styles.",
+   "journal": "Florence Nightingale J Nurs",
+   "year": "2026",
+   "authors": "Ibraheem A, El-Said Hussein AS, El-Said Hussein ES.",
+   "disclosure": "Artificial Intelligence Usage Statement: During the preparation of this work the author used ChatGPT by OpenAI to proofread parts of this manuscript."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13354665",
+   "doi": "10.1007/s11250-026-05208-1",
+   "title": "Crossbreeding crioula and lacaune for milking productive performance and milk composition of crioula \u00d7 lacaune crossbred ewes under pampa conditions.",
+   "journal": "Trop Anim Health Prod",
+   "year": "2026",
+   "authors": "da Fontoura EAB, Tamiozzo MC, Menezes LM, Leite RF, H\u00e4rter CJ.",
+   "disclosure": "Declarations Declaration of generative AI and AI-assisted technologies in the manuscript preparation process During the preparation of this work the author(s) used PaperPal in order to review the English grammar."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13434709",
+   "doi": "10.1038/s41525-026-00601-z",
+   "title": "The clinical utility of carrier screening.",
+   "journal": "NPJ Genom Med",
+   "year": "2026",
+   "authors": "Gruzin MJ, Burnett L.",
+   "disclosure": "Declaration of AI and AI-assisted technologies in the writing process During the preparation of this work the author(s) used ChatGPT, developed by OpenAI, to improve the conciseness of wording and to ensure the correct use of grammar."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13280711",
+   "doi": "10.7759/cureus.109246",
+   "title": "Outcomes and Challenges of Allograft Reconstruction for Distal Tibial Tumors: A Retrospective Case Series.",
+   "journal": "Cureus",
+   "year": "2026",
+   "authors": "W Md Yusof WY, Radhakrishnan S, Js A, Azid A.",
+   "disclosure": "During the preparation of this work, the author(s) used ChatGPT (OpenAI, San Francisco, CA) for assistance with English language editing and manuscript refinement."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13615069",
+   "doi": "10.1007/s00405-026-10426-2",
+   "title": "Hyperuricemia beyond gout: an emerging risk factor for sensorineural hearing loss.",
+   "journal": "Eur Arch Otorhinolaryngol",
+   "year": "2026",
+   "authors": "Govind G, Shenoy VS, Zuturu N, Kamboj V, Domah H, Bajpai S, V AK, Parvathareddy N, Reddy N, Sharma A.",
+   "disclosure": "Declaration of Large Language Model (LLM) Usage During the preparation of this work, the author(s) utilized Large Language Models (LLM) solely to improve language and readability."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13451499",
+   "doi": "10.1007/s44498-026-00088-y",
+   "title": "Critical iridium demands arising from global expansion of proton exchange membrane electrolysis.",
+   "journal": "J Ind Ecol",
+   "year": "2026",
+   "authors": "Wortmann B, Stolten D, Heinrichs H.",
+   "disclosure": "Declaration of Generative AI During the preparation of this work the author used ChatGPT and DeepL Write in order to improve language and readability."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13273108",
+   "doi": "10.1182/bloodadvances.2025019565",
+   "title": "Mining single-cell transcriptomic data reveals distinct T-cell population in pediatric B-ALL and AML at diagnosis.",
+   "journal": "Blood Adv",
+   "year": "2026",
+   "authors": "Tian L, Gottschalk S.",
+   "disclosure": "Declaration of generative AI and AI-assisted technologies in the writing process: During the preparation of this work the author(s) used ChatGPT (OpenAI) in the editing process."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13525954",
+   "doi": "10.1007/s00429-026-03190-w",
+   "title": "Brain structural pathways linking dietary patterns and cognitive performance in adolescents.",
+   "journal": "Brain Struct Funct",
+   "year": "2026",
+   "authors": "Brocas I, Kirwin L, Kuloszewski M.",
+   "disclosure": "Declaration of generative AI and AI-assisted technologies in the writing process During the preparation of this work the author(s) used ChatGPT to improve language and readability."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13242040",
+   "doi": "10.30476/dentjods.2025.106238.2644",
+   "title": "Association between Serum Vitamin D Levels and &lt;i&gt;VDR&lt;/i&gt; &lt;i&gt;BsmI&lt;/i&gt; Polymorphism in Temporomandibular Joint Dysfunction Patients (in the Iranian Population).",
+   "journal": "J Dent (Shiraz)",
+   "year": "2026",
+   "authors": "Mostafavi M, Rezazadeh F, Fattahi MJ, Tavakoli F, Ghaderi A.",
+   "disclosure": "Declaration of Generative AI and AI\u2010assisted technologies in the writing process The author(s) used AI to improve language and translation during the preparation of this work."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13427250",
+   "doi": "10.1590/1806-9282.20260075",
+   "title": "Mapping 35 years of medical specialty theses on clinical nutrition in T\u00fcrkiye: the rise of the muscle-focused paradigm.",
+   "journal": "Rev Assoc Med Bras (1992)",
+   "year": "2026",
+   "authors": "Kaya ZI.",
+   "disclosure": "DECLARATION OF GENERATIVE AI: During the preparation of this work, the author used Gemini and ChatGPT to improve the language and readability of the manuscript."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13654454",
+   "doi": "10.1016/j.jped.2026.101624",
+   "title": "Assessment of pMDI inhaler technique in children and adolescents with cystic fibrosis.",
+   "journal": "J Pediatr (Rio J)",
+   "year": "2026",
+   "authors": "Bastos AMC, Pone MVDS, Costa PFBM, Varela MC, Junior SCDSG.",
+   "disclosure": "Declaration of generative AI During the preparation of this work, the author used Claude (Anthropic) to assist with manuscript structuring, formatting adaptation to journal guidelines, and language editing."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13624121",
+   "doi": "10.3389/fcvm.2026.1865878",
+   "title": "&lt;i&gt;Gata4&lt;/i&gt; regulates fibroblast migration in a fibroblast-source-dependent manner under physiological matrix stiffness.",
+   "journal": "Front Cardiovasc Med",
+   "year": "2026",
+   "authors": "Zhang Z, Zih-Shuo JW, Chen P, Xu Y, Yan Z, Zhang Q, Wang X, Alizai U, Ikeda T, Whitson BA, Pawlik TM, Zhu H.",
+   "disclosure": "During the preparation of this work the author(s) used Claude (Anthropic) in order to assist with language editing, and structural revision of the text."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13380506",
+   "doi": "10.1016/j.mex.2026.104019",
+   "title": "Rapid rice seed vigor assessment: A machine learning and deep learning framework with multi-time-point image analysis.",
+   "journal": "MethodsX",
+   "year": "2026",
+   "authors": "Kaewbundit V, Onwimol D, Wongchaisuwat P.",
+   "disclosure": "Ethics statements During the preparation of this work the author(s) used chatGPT in order to assist with grammar correction."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13439796",
+   "doi": "10.23938/assn.1165",
+   "title": "High-risk profiles for functional and cognitive decline following COVID-19 confinement in nursing home residents: A multicentre observational study",
+   "journal": "An Sist Sanit Navar",
+   "year": "2026",
+   "authors": "San Mart\u00edn-Erice I, Garc\u00eda-Vivar C, Furtado-Eraso S, Tamayo-Rodr\u00edguez I, San Mart\u00edn-Rodr\u00edguez L, Soto-Ruiz N, Escalada-Hern\u00e1ndez P.",
+   "disclosure": "Declaration of Generative AI usage: During the preparation of this work the author used IA in order to improve readability and language."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13613733",
+   "doi": "10.1186/s12893-026-04013-9",
+   "title": "Catheter-related thrombosis in cancer patients with tunnelled non-cuffed centrally inserted central catheters: a retrospective cohort study.",
+   "journal": "BMC Surg",
+   "year": "2026",
+   "authors": "Douchy T, Boecxstaens V, Hompes D, Goossens GA.",
+   "disclosure": "Declaration of AI and AI-assisted technologies in the writing process During the preparation of this work, the author(s) used Chat GPT to improve readability and language."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13531463",
+   "doi": "10.1093/ofid/ofag527",
+   "title": "Bridging the Gap: Measles Susceptibility and Neutralization Test-Confirmed Immunity in a Spanish HIV-PrEP Cohort.",
+   "journal": "Open Forum Infect Dis",
+   "year": "2026",
+   "authors": "Ferreira-Tata C, Corona-Mata D, Ruiz-Vel\u00e1zquez S, P\u00e9rez-Jim\u00e9nez AB, Gavil\u00e1n AM, Gallo-Mar\u00edn M, P\u00e9rez-Valero I, Camacho \u00c1, Rivero-Ju\u00e1rez A, Garc\u00eda AF, Rivero A.",
+   "disclosure": "Declaration of Generative AI And AI-Assisted Technologies In The Writing Process."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13593919",
+   "doi": "10.1002/nop2.70853",
+   "title": "Association Between Self-Rated Health and eHealth Literacy in Higher Vocational Nursing Students: A Cross-Sectional Study.",
+   "journal": "Nurs Open",
+   "year": "2026",
+   "authors": "Huang L, Chen Y, Du X, Wang A.",
+   "disclosure": "Declaration of generative AI and AI\u2010assisted technologies in the writing process : During the preparation of this work, the author(s) used Kimi (Moonshot AI) to translate the initial draft from Chinese to English."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13694870",
+   "doi": "10.1016/j.htct.2026.108543",
+   "title": "Enteral nutritional therapy practices in pediatric hematopoietic stem cell transplant centers in Brazil.",
+   "journal": "Hematol Transfus Cell Ther",
+   "year": "2026",
+   "authors": "Viau VS, da Silva AF, Poloni S, Bosa VL, Behling EB.",
+   "disclosure": "Declaration of generative AI and AI-assisted technologies in the writing process During the preparation of this work, the author(s) used ChatGPT (OpenAI) in order to assist with language editing and translation."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13602832",
+   "doi": "10.7759/cureus.115143",
+   "title": "Knowledge-Practice Gaps in Guideline-Based Asthma Management Among Community Pharmacists in Sudan: A Cross-Sectional Study.",
+   "journal": "Cureus",
+   "year": "2026",
+   "authors": "Hamadouk RM, Ahmed AH, Altaher A, Abdo MM, Elsheikh HAS, Ahmed MT, Yousef BA.",
+   "disclosure": "During the preparation of this work, the author(s) used OpenAI (2025), ChatGPT (July 19 version), to assist with language editing, grammar correction, academic phrasing, and readability improvement during manuscript preparation."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13597225",
+   "doi": "10.3389/fimmu.2026.1932664",
+   "title": "Metabolic alterations associated with cirrhosis after HCV cure in people with HIV: metabolomic and lipidomic findings at one and five years.",
+   "journal": "Front Immunol",
+   "year": "2026",
+   "authors": "Virseda-Berdices A, Fern\u00e1ndez-Requena B, Berenguer J, G\u00f3nzalez-Garc\u00eda J, Gonzalez-Riano C, Behar-Lagares R, D\u00edez C, Honta\u00f1\u00f3n V, Fern\u00e1ndez-Rodr\u00edguez A, Barbas C, Martin-Escolano R, Resino S, Jim\u00e9nez-Sousa MA.",
+   "disclosure": "5 Pro in Google AI Studio and ChatGPT (OpenAI) in order to assist with language editing, grammar, and text flow."
+  },
+  {
+   "query": "elsevier_template",
+   "pmcid": "PMC13571485",
+   "doi": "10.1016/j.imj.2026.100280",
+   "title": "Convalescent plasma for persistent symptomatic COVID-19 infection in immune-suppressed patients - a case series.",
+   "journal": "Infect Med (Beijing)",
+   "year": "2026",
+   "authors": "Ronen D, Karameh M, Padawer D, Alsharif N, Elghaffar Yaghmour A, Elinav H, Fridlender ZG.",
+   "disclosure": "Generative AI During the preparation of this work the author(s) used GEMINI in order to create and edit the graphical abstract."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13648177",
+   "doi": "10.1016/j.ijnss.2026.08.004",
+   "title": "Healthcare professionals' perceptions and needs for a Home-based Artificial Intelligence Pain Management System for cancer pain: A qualitative study.",
+   "journal": "Int J Nurs Sci",
+   "year": "2026",
+   "authors": "Chen M, Chen X, Yuan J, Yang M, Lu J, Lam WC, Ng CY, Wong TKS.",
+   "disclosure": "Declaration of generative AI and AI-assisted technologies During the preparation of this work, the authors used ChatGPT for language polishing and formatting suggestions."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13677532",
+   "doi": "10.3389/fpubh.2026.1876317",
+   "title": "Signal detection of substance-related emergency department visits during UEFA EURO 2024 in Germany: enhancing public health surveillance for future mass gatherings.",
+   "journal": "Front Public Health",
+   "year": "2026",
+   "authors": "Schlump C, Schranz M, Charfeddine N, Rupprecht M, Ullrich A, Diercke M, AKTIN Research Group 4, Estupinan Mendez J, AKTIN Research Group .",
+   "disclosure": "OpenAI tool ChatGPT was used for language editing and assistance with resolving programming errors."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13504321",
+   "doi": "10.5152/eurasianjmed.2026.261589",
+   "title": "The Relationship Between the Systemic Immune Inflammatory Index and Atrial Fibrillation in Heart Failure with Preserved Ejection Fraction.",
+   "journal": "Eurasian J Med",
+   "year": "2026",
+   "authors": "\u015eent\u00fcrk B, K\u0131\u015f M, \u00c7\u00f6ll\u00fco\u011flu T, Dursun H, Oktay \u00c7, Ekizler FA, Y\u0131lmaz MB.",
+   "disclosure": "ChatGPT was employed as a language-editing aid during the preparation of this manuscript."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13624323",
+   "doi": "10.1177/10519815251403559",
+   "title": "Occupational health and safety management when digitalizing public services: Local government manager experiences in Sweden.",
+   "journal": "Work",
+   "year": "2026",
+   "authors": "Asp A, Palm K, H\u00e5kansta C.",
+   "disclosure": "Copilot and ChatGPT were used for language refinement and grammar checking."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13554483",
+   "doi": "10.5152/tjg.2026.26143",
+   "title": "Discriminative Role of Interleukin-6, Neuropilin-1, and Amphiregulin for Cirrhosis in Patients with Chronic Hepatitis B Infection.",
+   "journal": "Turk J Gastroenterol",
+   "year": "2026",
+   "authors": "Karakoc Ozudogru F, Karaca B, Turker N, Ormen B, Vatansever S, Erbak Y\u0131lmaz H, Karalar FO, Gunsar F, Sener A.",
+   "disclosure": "Generative artificial intelligence tools were used only for language editing and proofreading; all scientific content, data analysis, interpretation, and final text were reviewed and approved by the authors, who take full responsibility for the content of the manuscript."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13634134",
+   "doi": "10.5588/pha.26.0041",
+   "title": "Enhancing parenteral therapy for anaemia among pregnant women in rural India.",
+   "journal": "Public Health Action",
+   "year": "2026",
+   "authors": "Kotni P, Ramaswamy G, Cheela S, Patil S, Chinnakali P, Tripathy JP, Khandale M, Kamban D, Konguvel C, Manohar M.",
+   "disclosure": "ChatGPT was used for language refinement and to summarise this manuscript."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13593683",
+   "doi": "10.1007/s10096-026-05561-x",
+   "title": "Vancomycin and phage COP-80B combination therapy for Staphylococcus epidermidis periprosthetic joint infections: a preclinical mouse study.",
+   "journal": "Eur J Clin Microbiol Infect Dis",
+   "year": "2026",
+   "authors": "\u0160tilec V, Maru\u0161i\u0107 M, Motaln H, Gregori\u010d K, Draksler U, \u010cater M, Izlakar J, Jane\u017e N, Treb\u0161e R, Horvat S, Peterka M.",
+   "disclosure": "Declaration on the use of generative AI and AI-assisted technologies in writing Generative AI tools, such as ChatGPT, were used for language editing and improving the clarity of the manuscript."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13247612",
+   "doi": "10.1111/liv.70736",
+   "title": "Post-TIPS Dynamics of von Willebrand Factor for Risk Stratification After TIPS Placement.",
+   "journal": "Liver Int",
+   "year": "2026",
+   "authors": "Hintersteininger M, Gairing SJ, Kirsch K, M\u00fcllner-Bucsics T, Riegler S, Reider L, Jachs M, Balcar L, Schleicher EM, S\u00f6hngen J, M\u00fcller L, Pitton MB, Weinmann-Menke J, Lange CM, Galle PR, Trauner M, Mandorfer M, Reiberger T, Labenz C, Hartl L.",
+   "disclosure": "Declaration of generative AI and AI\u2010assisted technologies in the writing process : During the preparation of this work the authors used ChatGPT for language improvement."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13155484",
+   "doi": "10.1002/bip.70101",
+   "title": "Influence of Boron Nitride Nanosheets on the Properties of Gelatin-Chitosan Bioinks for Extrusion-Based 3D Bioprinting.",
+   "journal": "Biopolymers",
+   "year": "2026",
+   "authors": "Erdogan A, Sumbelli Y, Goncu Y, Ay N.",
+   "disclosure": "During the preparation of this work, the authors used ChatGPT, a language model developed by OpenAI, to assist in improving the clarity and fluency of the English language in the manuscript."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13198863",
+   "doi": "10.1093/ije/dyag060",
+   "title": "Associations of ambient temperature exposure with embryonic and early fetal development.",
+   "journal": "Int J Epidemiol",
+   "year": "2026",
+   "authors": "Essers E, de Groot JM, Graafland N, Gon\u00e7alves R, I\u00f1iguez C, Petricola S, Jaddoe V, El Marroun H, Tiemeier H, Steegers E, Rousian M, Mulders A, Guxens M.",
+   "disclosure": "Use of artificial intelligence (AI) tools During the preparation of this work, the author(s) used ChatGPT, a language model developed by OpenAI, to assist with language editing and improving clarity."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13245374",
+   "doi": "10.1016/j.ijid.2026.108723",
+   "title": "Vascular and inflammatory biomarkers linked to neurocognition in Ugandan youth with perinatal HIV on dolutegravir.",
+   "journal": "Int J Infect Dis",
+   "year": "2026",
+   "authors": "Carlson CM, Sun S, Karungi C, Gumikiriza-Onoria JL, Kirsch C, Nanteza A, Ferraris CM, Liyanage NPM, Funderburg N, Musiime V, Robbins RN, Dirajlal-Fargo S.",
+   "disclosure": "Declaration of generative AI and AI-assisted technologies in the writing process During the preparation of this work the author(s) used ChatGPT to improve readability."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13673915",
+   "doi": "10.1186/s12905-026-04701-x",
+   "title": "Fluid deficit-related complications in hysteroscopic surgery using normal saline as distension medium: a retrospective analysis of four surgical modalities and risk factors.",
+   "journal": "BMC Womens Health",
+   "year": "2026",
+   "authors": "Guo T, Zhu T, Zhang R, Zhang L, Zheng Q, Jia H, Wang Z.",
+   "disclosure": "Declaration of generative AI During the preparation of this work, the authors used ChatGPT for language polishing."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13152636",
+   "doi": "10.1093/noajnl/vdag096",
+   "title": "Hemizygous deletion of &lt;i&gt;CDKN2A/B&lt;/i&gt; in &lt;i&gt;IDH&lt;/i&gt;-mutated glioma: Prognostic impact when adjusting for clinical factors.",
+   "journal": "Neurooncol Adv",
+   "year": "2026",
+   "authors": "Lipatnikova A, Ippen FM, D\u00e9nes A, Carstam L, Bontell TO, Corell A, Vega SF, Kwan RS, Suwala AK, Car\u00e9n H, Jakola AS.",
+   "disclosure": "Supplementary Material vdag096_Supplementary_Data Acknowledgments During the preparation of this article, Consensus was used for literature searching and ChatGPT was used for language refinement."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13474227",
+   "doi": "10.1177/03000605261473853",
+   "title": "Occupational dust exposure and thyroid nodule screening: A predictive modeling approach for early detection in coal mining communities.",
+   "journal": "J Int Med Res",
+   "year": "2026",
+   "authors": "Zhao F, Wu K, Zhang H.",
+   "disclosure": "Declaration of generative artificial intelligence (AI) in scientific writing: During the preparation of this work the author(s) used ChatGPT to improve readability and language."
+  },
+  {
+   "query": "chatgpt_language",
+   "pmcid": "PMC13232476",
+   "doi": "10.7150/thno.133484",
+   "title": "Reversing Bladder Cancer Chemo-resistance through Blocking Cell Senescence by a Combination Therapy.",
+   "journal": "Theranostics",
+   "year": "2026",
+   "authors": "He Y, Fang Z, Zhang J, Wei Q, Li Y, Duan Z, Xu G, Lin T, Xiong Q, Gong Q, Tan P, Luo K.",
+   "disclosure": "Artificial intelligence (AI) tool, ChatGPT, was used for language editing and formatting assistance."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13677871",
+   "doi": "10.3389/fpsyg.2026.1916688",
+   "title": "Perceived parental differential treatment and internet addiction among Chinese adolescents: the mediating role of self-esteem and the moderating role of fairness perception.",
+   "journal": "Front Psychol",
+   "year": "2026",
+   "authors": "Shi X, Hou J, Wang Z.",
+   "disclosure": "Generative AI was used only for English translation and language polishing of the manuscript text."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13581523",
+   "doi": "10.3389/fpsyt.2026.1944377",
+   "title": "Physical exercise and social media addiction among adolescents: a chain mediation analysis of cognitive flexibility and negative attention bias.",
+   "journal": "Front Psychiatry",
+   "year": "2026",
+   "authors": "Luo J, Long S, Chen Y, Pan M, Liu Y, Ma X, Luo J.",
+   "disclosure": "Generative AI was used exclusively for language polishing and grammatical refinement to improve readability and fluency."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13648947",
+   "doi": "10.2196/93241",
+   "title": "The Readability of Patient-Facing Information in Public Reporting System: Cross-Sectional Evaluation of the City of Helsinki Website.",
+   "journal": "Online J Public Health Inform",
+   "year": "2026",
+   "authors": "Du L, Suomi R.",
+   "disclosure": "During the preparation of this manuscript, generative AI (ChatGPT; OpenAI) was used solely for translation and language polishing purposes."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13417782",
+   "doi": "10.3389/fpsyg.2026.1868103",
+   "title": "A cognitive-affective dual-path model of learner engagement in AI-supported writing feedback.",
+   "journal": "Front Psychol",
+   "year": "2026",
+   "authors": "Li T, Abdul Aziz A, Sulaiman NA.",
+   "disclosure": "org (n = 24); Grammarly (n = 14) Patterns of AWE use Course-mandated use of Pigai; supplementary use of Grammarly Typical context of use University writing assignments and revision tasks CET-4 scores (total score = 750) were used as a reference indicator of general English proficiency and were supplemented by instructors' holistic evaluations to form proficiency groupings for qualitative analysis."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13455215",
+   "doi": "10.7150/jca.136981",
+   "title": "Selective sensitivity of betel nut-related oral squamous cell carcinoma to evodiamine through cell cycle arrest, growth inhibition and apoptosis induction.",
+   "journal": "J Cancer",
+   "year": "2026",
+   "authors": "Lu YC, Tang KL, Liao CH, Li YZ, Kuo CH, Chen PT, Chen SH, Lee YR.",
+   "disclosure": "Declaration of generative AI use During the preparation of this work the authors used ChatGPT in order to assist in tasks such as language polishing and improving readability."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13212306",
+   "doi": "10.3389/fmed.2026.1835766",
+   "title": "Early risk prediction model for intra-abdominal hypertension in adult ICU patients: a prospective cohort study.",
+   "journal": "Front Med (Lausanne)",
+   "year": "2026",
+   "authors": "Tan Y, Kou Y, Du J, Chen Y, Ma Y, Yu H, Li S, Pan C.",
+   "disclosure": "Generative AI was used solely for language polishing and grammatical refinement after the completion of the collaborative writing process."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13425507",
+   "doi": "10.1021/acsomega.6c01170",
+   "title": "Combining Artificial Intelligence and Human Expertise in Pursuit of Novel PolQ Inhibitors.",
+   "journal": "ACS Omega",
+   "year": "2026",
+   "authors": "Miccoli A, Charnock A, Denis A, Fordyce E, Franklin C, Gheyouche E, Henderson I, Housseman C, Jordan A, Laugeois M, Meillon JC, Onions S, Perron Q, Pescheteau C, Pihan E, Reeves M, Rooney K, Rowlands H, Scally N, Sleigh C, Sumal K, Le Vaillant F, Walker G.",
+   "disclosure": "The authors acknowledge the use of OpenAI\u2019s ChatGPT (GPT-4, June 2025 version) to assist in the drafting and editorial refinement of sections of this manuscript, including scientific language polishing and paragraph structuring for the computational chemistry sections."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13415349",
+   "doi": "10.3389/fmicb.2026.1835355",
+   "title": "What are the microbial burden and potential pathogens on hospital surfaces before and after cleaning?",
+   "journal": "Front Microbiol",
+   "year": "2026",
+   "authors": "Legeay C, Lemari\u00e9 C, Eveillard M.",
+   "disclosure": "Generative AI was used to improve manuscript readability, grammar and spelling."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13582458",
+   "doi": "10.3389/fped.2026.1904477",
+   "title": "Pediatric opioid and cannabis poisoning hospitalizations in the United States, 2016-2022: a national age-matched inpatient analysis.",
+   "journal": "Front Pediatr",
+   "year": "2026",
+   "authors": "Fournier L, Shehadeh S, Saied MH, Maman D, Pillar G.",
+   "disclosure": "Generative AI was used only to assist with English grammar, language editing, and manuscript formatting."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13582487",
+   "doi": "10.3389/fdgth.2026.1883794",
+   "title": "Governing AI-driven digital transformation in public healthcare: assessing administrative readiness and institutional capacity in Egypt's health system.",
+   "journal": "Front Digit Health",
+   "year": "2026",
+   "authors": "El-Naggar MA, Al Nashily DH, Abdulrahim HA, Awad A, Hussain Z, Mohammad AAS.",
+   "disclosure": "The authors used Grammarly and generative AI-assisted language tools only for language polishing, grammar checking, and improving readability during revision."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13365028",
+   "doi": "10.3389/fpubh.2026.1878399",
+   "title": "Association between household coal use duration and upper gastrointestinal cancer and precancerous lesions: a cross-sectional study.",
+   "journal": "Front Public Health",
+   "year": "2026",
+   "authors": "Xu K, Wang Z, Guo X, Cui P, Fan L, Jia H, Hu W.",
+   "disclosure": "Generative AI was only used for academic language polishing, English sentence optimization, grammar correction and format standardization of the manuscript."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13483690",
+   "doi": "10.1186/s41073-026-00245-8",
+   "title": "Disclosure is not documentation: an open science framework for documenting generative AI use in scholarly research and publication workflows.",
+   "journal": "Res Integr Peer Rev",
+   "year": "2026",
+   "authors": "Cwik JC.",
+   "disclosure": "Background Generative AI is increasingly used in scholarly research, writing, and publication workflows."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13541478",
+   "doi": "10.3389/fmed.2026.1931432",
+   "title": "Room of errors simulation for improving patient safety knowledge, attitudes, and performance confidence among nursing students: a quasi-experimental study.",
+   "journal": "Front Med (Lausanne)",
+   "year": "2026",
+   "authors": "Jeon S, Kim M.",
+   "disclosure": "Generative AI was used only to support English language editing and manuscript formatting."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13643254",
+   "doi": "10.2196/103584",
+   "title": "Generative AI-Assisted Progressive-Disclosure Case-Based Learning for Clinical Reasoning in Occupational Medicine: Quasi-Experimental Study.",
+   "journal": "JMIR Med Educ",
+   "year": "2026",
+   "authors": "Su P, Hu M, Chen C, Xu S.",
+   "disclosure": "Acknowledgments Generative AI tools, including the DeepSeek-V3 model, were used during the preparation of this manuscript for case generation, language polishing, and proofreading."
+  },
+  {
+   "query": "genai_generic",
+   "pmcid": "PMC13538014",
+   "doi": "10.3389/fphar.2026.1895524",
+   "title": "Early post-marketing safety profile of resmetirom in FAERS: an exploratory assessment of statin co-reporting.",
+   "journal": "Front Pharmacol",
+   "year": "2026",
+   "authors": "Liu Y, Chen J, Zhong H, Yu Y, Liu S, Yu Y.",
+   "disclosure": "Generative AI was utilized strictly for language polishing and copyediting purposes to enhance the readability and fluency of the text."
+  }
+ ]
+}

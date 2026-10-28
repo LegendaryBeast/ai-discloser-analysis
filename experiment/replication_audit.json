@@ -1,0 +1,8 @@
+{
+ "auditor": "Re-read of every replication disclosure sentence (125 in 2024-25, 111 in 2026) with the audit_v2 rule. Keys are PMCIDs of disclosing papers.",
+ "excluded": {
+  "PMC11142427": "reference-list entry of a paper about LLMs, not a disclosure",
+  "PMC11240040": "introduction of a paper about ChatGPT, not a disclosure",
+  "PMC13518380": "title-page metadata of a paper about AI, not a disclosure"
+ }
+}

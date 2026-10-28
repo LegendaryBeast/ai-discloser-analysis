@@ -1,0 +1,348 @@
+word,decision,reason
+particularly,style,generic evaluative/framing/transition word
+exhibited,style,generic evaluative/framing/transition word
+enhance,style,generic evaluative/framing/transition word
+challenges,style,generic evaluative/framing/transition word
+additionally,style,generic evaluative/framing/transition word
+crucial,style,generic evaluative/framing/transition word
+highlights,style,generic evaluative/framing/transition word
+enhancing,style,generic evaluative/framing/transition word
+insights,style,generic evaluative/framing/transition word
+comprehensive,style,generic evaluative/framing/transition word
+offering,style,generic evaluative/framing/transition word
+highlighting,style,generic evaluative/framing/transition word
+address,style,generic evaluative/framing/transition word
+notably,style,generic evaluative/framing/transition word
+integrating,style,generic evaluative/framing/transition word
+valuable,style,generic evaluative/framing/transition word
+offers,style,generic evaluative/framing/transition word
+diverse,style,generic evaluative/framing/transition word
+emerged,style,generic evaluative/framing/transition word
+linked,style,generic evaluative/framing/transition word
+underscores,style,generic evaluative/framing/transition word
+integration,style,generic evaluative/framing/transition word
+underscore,style,generic evaluative/framing/transition word
+primarily,style,generic evaluative/framing/transition word
+presents,style,generic evaluative/framing/transition word
+achieving,style,generic evaluative/framing/transition word
+addressing,style,generic evaluative/framing/transition word
+offer,style,generic evaluative/framing/transition word
+promise,style,generic evaluative/framing/transition word
+focusing,style,generic evaluative/framing/transition word
+precise,style,generic evaluative/framing/transition word
+enhances,style,generic evaluative/framing/transition word
+investigates,style,generic evaluative/framing/transition word
+emphasizing,style,generic evaluative/framing/transition word
+substantial,style,generic evaluative/framing/transition word
+optimizing,style,generic evaluative/framing/transition word
+managing,content,"topic, entity, technique, measurement or clinical term"
+advancements,style,generic evaluative/framing/transition word
+demonstrating,style,generic evaluative/framing/transition word
+personalized,content,"topic, entity, technique, measurement or clinical term"
+alongside,style,generic evaluative/framing/transition word
+mitigate,style,generic evaluative/framing/transition word
+pivotal,style,generic evaluative/framing/transition word
+influencing,style,generic evaluative/framing/transition word
+contributing,style,generic evaluative/framing/transition word
+notable,style,generic evaluative/framing/transition word
+advancing,style,generic evaluative/framing/transition word
+underscoring,style,generic evaluative/framing/transition word
+elucidate,style,generic evaluative/framing/transition word
+explores,style,generic evaluative/framing/transition word
+integrates,style,generic evaluative/framing/transition word
+foundation,style,generic evaluative/framing/transition word
+varying,style,generic evaluative/framing/transition word
+poses,style,generic evaluative/framing/transition word
+utilizing,style,generic evaluative/framing/transition word
+ensuring,style,generic evaluative/framing/transition word
+ultimately,style,generic evaluative/framing/transition word
+subsequently,style,generic evaluative/framing/transition word
+innovative,style,generic evaluative/framing/transition word
+tailored,style,generic evaluative/framing/transition word
+exhibiting,style,generic evaluative/framing/transition word
+leveraging,style,generic evaluative/framing/transition word
+treating,content,"topic, entity, technique, measurement or clinical term"
+revealing,style,generic evaluative/framing/transition word
+evaluations,style,generic evaluative/framing/transition word
+serves,style,generic evaluative/framing/transition word
+holds,style,generic evaluative/framing/transition word
+underexplored,style,generic evaluative/framing/transition word
+retention,content,"topic, entity, technique, measurement or clinical term"
+dysregulation,content,"topic, entity, technique, measurement or clinical term"
+addresses,style,generic evaluative/framing/transition word
+intelligence,content,AI-topic word
+yielding,style,generic evaluative/framing/transition word
+pose,style,generic evaluative/framing/transition word
+necessitating,style,generic evaluative/framing/transition word
+conversely,style,generic evaluative/framing/transition word
+employing,style,generic evaluative/framing/transition word
+outperforming,style,generic evaluative/framing/transition word
+intricate,style,generic evaluative/framing/transition word
+yielded,style,generic evaluative/framing/transition word
+emphasize,style,generic evaluative/framing/transition word
+emphasizes,style,generic evaluative/framing/transition word
+modalities,content,"topic, entity, technique, measurement or clinical term"
+examining,style,generic evaluative/framing/transition word
+exceptional,style,generic evaluative/framing/transition word
+preserving,style,generic evaluative/framing/transition word
+mitigating,style,generic evaluative/framing/transition word
+unexplored,style,generic evaluative/framing/transition word
+multifaceted,style,generic evaluative/framing/transition word
+minimizing,style,generic evaluative/framing/transition word
+serving,style,generic evaluative/framing/transition word
+fostering,style,generic evaluative/framing/transition word
+advancement,style,generic evaluative/framing/transition word
+evidenced,style,generic evaluative/framing/transition word
+transformative,style,generic evaluative/framing/transition word
+suppressing,content,"topic, entity, technique, measurement or clinical term"
+interplay,style,generic evaluative/framing/transition word
+heightened,style,generic evaluative/framing/transition word
+sem,content,"topic, entity, technique, measurement or clinical term"
+inherent,style,generic evaluative/framing/transition word
+scalability,content,"topic, entity, technique, measurement or clinical term"
+posing,style,generic evaluative/framing/transition word
+necessity,style,generic evaluative/framing/transition word
+methodologies,style,generic evaluative/framing/transition word
+functionality,content,"topic, entity, technique, measurement or clinical term"
+concurrently,style,generic evaluative/framing/transition word
+durability,content,"topic, entity, technique, measurement or clinical term"
+diagnosing,content,"topic, entity, technique, measurement or clinical term"
+leverages,style,generic evaluative/framing/transition word
+spanning,style,generic evaluative/framing/transition word
+surpassing,style,generic evaluative/framing/transition word
+mitigated,style,generic evaluative/framing/transition word
+restoring,content,"topic, entity, technique, measurement or clinical term"
+preservation,style,generic evaluative/framing/transition word
+elucidating,style,generic evaluative/framing/transition word
+prioritize,style,generic evaluative/framing/transition word
+maintains,style,generic evaluative/framing/transition word
+disturbances,content,"topic, entity, technique, measurement or clinical term"
+generalizability,content,"topic, entity, technique, measurement or clinical term"
+capturing,style,generic evaluative/framing/transition word
+burdens,content,"topic, entity, technique, measurement or clinical term"
+threat,content,"topic, entity, technique, measurement or clinical term"
+combines,style,generic evaluative/framing/transition word
+governing,style,generic evaluative/framing/transition word
+epigenetic,content,"topic, entity, technique, measurement or clinical term"
+ferroptosis,content,"topic, entity, technique, measurement or clinical term"
+encompassing,style,generic evaluative/framing/transition word
+garnered,style,generic evaluative/framing/transition word
+hold,style,generic evaluative/framing/transition word
+errors,content,"topic, entity, technique, measurement or clinical term"
+strategic,style,generic evaluative/framing/transition word
+t-tests,content,"topic, entity, technique, measurement or clinical term"
+durations,content,"topic, entity, technique, measurement or clinical term"
+compromising,style,generic evaluative/framing/transition word
+validating,style,generic evaluative/framing/transition word
+bonding,content,"topic, entity, technique, measurement or clinical term"
+paving,style,generic evaluative/framing/transition word
+elucidates,style,generic evaluative/framing/transition word
+expertise,style,generic evaluative/framing/transition word
+synthesizing,style,generic evaluative/framing/transition word
+cost-effectiveness,content,"topic, entity, technique, measurement or clinical term"
+foundational,style,generic evaluative/framing/transition word
+complexities,style,generic evaluative/framing/transition word
+rigorous,style,generic evaluative/framing/transition word
+warranting,style,generic evaluative/framing/transition word
+aligning,style,generic evaluative/framing/transition word
+refining,style,generic evaluative/framing/transition word
+peroxidation,content,"topic, entity, technique, measurement or clinical term"
+extending,style,generic evaluative/framing/transition word
+checklist,content,"topic, entity, technique, measurement or clinical term"
+necessitates,style,generic evaluative/framing/transition word
+stays,style,generic evaluative/framing/transition word
+informing,style,generic evaluative/framing/transition word
+sourced,content,"topic, entity, technique, measurement or clinical term"
+confirms,style,generic evaluative/framing/transition word
+ir,content,"topic, entity, technique, measurement or clinical term"
+alleviating,style,generic evaluative/framing/transition word
+caution,style,generic evaluative/framing/transition word
+alleviates,style,generic evaluative/framing/transition word
+prioritized,style,generic evaluative/framing/transition word
+aiding,style,generic evaluative/framing/transition word
+profound,style,generic evaluative/framing/transition word
+arises,style,generic evaluative/framing/transition word
+tau,content,"topic, entity, technique, measurement or clinical term"
+refinement,style,generic evaluative/framing/transition word
+cues,content,"topic, entity, technique, measurement or clinical term"
+accelerating,style,generic evaluative/framing/transition word
+doping,content,"topic, entity, technique, measurement or clinical term"
+raising,style,generic evaluative/framing/transition word
+clarity,style,generic evaluative/framing/transition word
+lies,style,generic evaluative/framing/transition word
+biliary,content,"topic, entity, technique, measurement or clinical term"
+synergistically,content,"topic, entity, technique, measurement or clinical term"
+transparency,content,"topic, entity, technique, measurement or clinical term"
+posed,style,generic evaluative/framing/transition word
+dpph,content,"topic, entity, technique, measurement or clinical term"
+necessitate,style,generic evaluative/framing/transition word
+adjustments,style,generic evaluative/framing/transition word
+environmentally,content,"topic, entity, technique, measurement or clinical term"
+escalating,style,generic evaluative/framing/transition word
+convergent,content,"topic, entity, technique, measurement or clinical term"
+creation,style,generic evaluative/framing/transition word
+prompting,style,generic evaluative/framing/transition word
+generative,content,AI-topic word
+bile,content,"topic, entity, technique, measurement or clinical term"
+jak,content,"topic, entity, technique, measurement or clinical term"
+enhancements,style,generic evaluative/framing/transition word
+showcasing,style,generic evaluative/framing/transition word
+encompasses,style,generic evaluative/framing/transition word
+simulating,content,"topic, entity, technique, measurement or clinical term"
+navigate,style,generic evaluative/framing/transition word
+proactive,style,generic evaluative/framing/transition word
+cn,content,"topic, entity, technique, measurement or clinical term"
+post-surgery,content,"topic, entity, technique, measurement or clinical term"
+erosion,content,"topic, entity, technique, measurement or clinical term"
+composites,content,"topic, entity, technique, measurement or clinical term"
+biodiversity,content,"topic, entity, technique, measurement or clinical term"
+glp,content,"topic, entity, technique, measurement or clinical term"
+pressing,style,generic evaluative/framing/transition word
+favored,style,generic evaluative/framing/transition word
+immunocompromised,content,"topic, entity, technique, measurement or clinical term"
+capacities,style,generic evaluative/framing/transition word
+stewardship,content,"topic, entity, technique, measurement or clinical term"
+comfort,content,"topic, entity, technique, measurement or clinical term"
+well-established,style,generic evaluative/framing/transition word
+follow-ups,content,"topic, entity, technique, measurement or clinical term"
+phenolic,content,"topic, entity, technique, measurement or clinical term"
+prioritizing,style,generic evaluative/framing/transition word
+transitioning,style,generic evaluative/framing/transition word
+accelerates,style,generic evaluative/framing/transition word
+forests,content,"topic, entity, technique, measurement or clinical term"
+delves,style,generic evaluative/framing/transition word
+marks,style,generic evaluative/framing/transition word
+phosphorus,content,"topic, entity, technique, measurement or clinical term"
+hinders,style,generic evaluative/framing/transition word
+lysosomal,content,"topic, entity, technique, measurement or clinical term"
+packaging,content,"topic, entity, technique, measurement or clinical term"
+user-friendly,style,generic evaluative/framing/transition word
+stands,style,generic evaluative/framing/transition word
+rarity,content,"topic, entity, technique, measurement or clinical term"
+computing,content,"topic, entity, technique, measurement or clinical term"
+hplc,content,"topic, entity, technique, measurement or clinical term"
+reoperation,content,"topic, entity, technique, measurement or clinical term"
+off-target,content,"topic, entity, technique, measurement or clinical term"
+ors,content,"topic, entity, technique, measurement or clinical term"
+self-efficacy,content,"topic, entity, technique, measurement or clinical term"
+advocate,style,generic evaluative/framing/transition word
+compelling,style,generic evaluative/framing/transition word
+organoids,content,"topic, entity, technique, measurement or clinical term"
+attack,content,"topic, entity, technique, measurement or clinical term"
+encompass,style,generic evaluative/framing/transition word
+dimensionality,content,"topic, entity, technique, measurement or clinical term"
+leaving,content,"topic, entity, technique, measurement or clinical term"
+uncontrolled,content,"topic, entity, technique, measurement or clinical term"
+flavonoid,content,"topic, entity, technique, measurement or clinical term"
+exacerbating,style,generic evaluative/framing/transition word
+cellulose,content,"topic, entity, technique, measurement or clinical term"
+liposomes,content,"topic, entity, technique, measurement or clinical term"
+weighting,content,"topic, entity, technique, measurement or clinical term"
+breaking,content,"topic, entity, technique, measurement or clinical term"
+hbv,content,"topic, entity, technique, measurement or clinical term"
+structure-activity,content,"topic, entity, technique, measurement or clinical term"
+radiomics,content,"topic, entity, technique, measurement or clinical term"
+ia,content,"topic, entity, technique, measurement or clinical term"
+dsc,content,"topic, entity, technique, measurement or clinical term"
+flexion,content,"topic, entity, technique, measurement or clinical term"
+farming,content,"topic, entity, technique, measurement or clinical term"
+linker,content,"topic, entity, technique, measurement or clinical term"
+steadily,style,generic evaluative/framing/transition word
+indicative,style,generic evaluative/framing/transition word
+microplastics,content,"topic, entity, technique, measurement or clinical term"
+microstructure,content,"topic, entity, technique, measurement or clinical term"
+xps,content,"topic, entity, technique, measurement or clinical term"
+longevity,content,"topic, entity, technique, measurement or clinical term"
+disparity,content,"topic, entity, technique, measurement or clinical term"
+biogenesis,content,"topic, entity, technique, measurement or clinical term"
+candida,content,"topic, entity, technique, measurement or clinical term"
+evolve,style,generic evaluative/framing/transition word
+agency,content,"topic, entity, technique, measurement or clinical term"
+probiotics,content,"topic, entity, technique, measurement or clinical term"
+emerges,style,generic evaluative/framing/transition word
+albeit,style,generic evaluative/framing/transition word
+conflicts,content,"topic, entity, technique, measurement or clinical term"
+chictr,content,"topic, entity, technique, measurement or clinical term"
+lithium,content,"topic, entity, technique, measurement or clinical term"
+varieties,content,"topic, entity, technique, measurement or clinical term"
+rings,content,"topic, entity, technique, measurement or clinical term"
+polysaccharide,content,"topic, entity, technique, measurement or clinical term"
+grain,content,"topic, entity, technique, measurement or clinical term"
+injectable,content,"topic, entity, technique, measurement or clinical term"
+delaying,content,"topic, entity, technique, measurement or clinical term"
+maximizing,style,generic evaluative/framing/transition word
+comprehension,content,"topic, entity, technique, measurement or clinical term"
+acetylation,content,"topic, entity, technique, measurement or clinical term"
+privacy,content,"topic, entity, technique, measurement or clinical term"
+ecology,content,"topic, entity, technique, measurement or clinical term"
+multilayer,content,"topic, entity, technique, measurement or clinical term"
+qualitatively,style,generic evaluative/framing/transition word
+impeding,style,generic evaluative/framing/transition word
+cancer-specific,content,"topic, entity, technique, measurement or clinical term"
+papillomavirus,content,"topic, entity, technique, measurement or clinical term"
+electrophysiological,content,"topic, entity, technique, measurement or clinical term"
+worsened,content,"topic, entity, technique, measurement or clinical term"
+bilirubin,content,"topic, entity, technique, measurement or clinical term"
+execution,content,"topic, entity, technique, measurement or clinical term"
+carbonyl,content,"topic, entity, technique, measurement or clinical term"
+plasmonic,content,"topic, entity, technique, measurement or clinical term"
+office,content,"topic, entity, technique, measurement or clinical term"
+phenomenological,content,"topic, entity, technique, measurement or clinical term"
+apical,content,"topic, entity, technique, measurement or clinical term"
+clock,content,"topic, entity, technique, measurement or clinical term"
+exerting,style,generic evaluative/framing/transition word
+corrosion,content,"topic, entity, technique, measurement or clinical term"
+enterococcus,content,"topic, entity, technique, measurement or clinical term"
+plain,content,"topic, entity, technique, measurement or clinical term"
+wear,content,"topic, entity, technique, measurement or clinical term"
+gingival,content,"topic, entity, technique, measurement or clinical term"
+breakdown,content,"topic, entity, technique, measurement or clinical term"
+meticulous,style,generic evaluative/framing/transition word
+tablets,content,"topic, entity, technique, measurement or clinical term"
+machines,content,"topic, entity, technique, measurement or clinical term"
+promptly,style,generic evaluative/framing/transition word
+bioactivity,content,"topic, entity, technique, measurement or clinical term"
+writing,content,AI-topic word
+pituitary,content,"topic, entity, technique, measurement or clinical term"
+novelty,style,generic evaluative/framing/transition word
+concentrate,content,"topic, entity, technique, measurement or clinical term"
+macro,content,"topic, entity, technique, measurement or clinical term"
+plastics,content,"topic, entity, technique, measurement or clinical term"
+quercetin,content,"topic, entity, technique, measurement or clinical term"
+grains,content,"topic, entity, technique, measurement or clinical term"
+incidents,content,"topic, entity, technique, measurement or clinical term"
+phenol,content,"topic, entity, technique, measurement or clinical term"
+shedding,content,"topic, entity, technique, measurement or clinical term"
+impressive,style,generic evaluative/framing/transition word
+phytochemical,content,"topic, entity, technique, measurement or clinical term"
+detoxification,content,"topic, entity, technique, measurement or clinical term"
+phage,content,"topic, entity, technique, measurement or clinical term"
+hydrophobicity,content,"topic, entity, technique, measurement or clinical term"
+aquaculture,content,"topic, entity, technique, measurement or clinical term"
+disposal,content,"topic, entity, technique, measurement or clinical term"
+electrocatalysts,content,"topic, entity, technique, measurement or clinical term"
+albicans,content,"topic, entity, technique, measurement or clinical term"
+grid,content,"topic, entity, technique, measurement or clinical term"
+ameliorating,style,generic evaluative/framing/transition word
+pervasive,style,generic evaluative/framing/transition word
+mofs,content,"topic, entity, technique, measurement or clinical term"
+polysaccharides,content,"topic, entity, technique, measurement or clinical term"
+hardness,content,"topic, entity, technique, measurement or clinical term"
+lays,style,generic evaluative/framing/transition word
+oc,content,"topic, entity, technique, measurement or clinical term"
+revman,content,"topic, entity, technique, measurement or clinical term"
+manager,content,"topic, entity, technique, measurement or clinical term"
+revolutionized,style,generic evaluative/framing/transition word
+utilisation,style,generic evaluative/framing/transition word
+von,content,"topic, entity, technique, measurement or clinical term"
+untargeted,content,"topic, entity, technique, measurement or clinical term"
+time-resolved,content,"topic, entity, technique, measurement or clinical term"
+allogeneic,content,"topic, entity, technique, measurement or clinical term"
+harnessing,style,generic evaluative/framing/transition word
+disease-related,content,"topic, entity, technique, measurement or clinical term"
+lifelong,content,"topic, entity, technique, measurement or clinical term"
+low-temperature,content,"topic, entity, technique, measurement or clinical term"
+em,content,"topic, entity, technique, measurement or clinical term"
+mix,content,"topic, entity, technique, measurement or clinical term"
+appropriateness,style,generic evaluative/framing/transition word
+recommends,style,generic evaluative/framing/transition word

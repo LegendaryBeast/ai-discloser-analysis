@@ -1,0 +1,20 @@
+# created by rehydrate.py (copyrighted texts; never commit)
+experiment/dataset.csv
+experiment/replication*_dataset.csv
+marker_list/*.jsonl.gz
+rehydration_report.json
+# API key and caches
+experiment/.env
+experiment/cache/
+experiment/cache_epmc/
+experiment/pubmed_cache.json
+# build outputs
+__pycache__/
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+.DS_Store

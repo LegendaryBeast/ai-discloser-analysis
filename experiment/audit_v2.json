@@ -1,0 +1,13 @@
+{"auditor": "Re-read of all 486 detected sentences of the disclosers in the analysis sample (2026-10-28), extending the manual audit of the first 160 sentences (audit.json). Keys are indices into disclosers.json papers.",
+ "rule": "Keep only sentences in which the authors state that they used an AI tool on the text of this manuscript (language, grammar, translation, readability, drafting, structuring). Exclude non-disclosures and uses that do not touch the text.",
+ "excluded": {"36": "AI used only to prepare part of Figure 1",
+              "411": "BioRender used for graphical elements only",
+              "524": "introduction sentence about AI tools in general, not a disclosure",
+              "621": "survey result about respondents' AI use, not a disclosure",
+              "689": "ChatGPT used to screen the bibliography, not the text",
+              "791": "method description (LLM-as-a-judge), not a disclosure",
+              "961": "highlights of a paper about an LLM tool, not a disclosure",
+              "968": "introduction of a paper about generative AI, not a disclosure",
+              "1187": "ChatGPT used only for R code"},
+ "ambiguous": {"641": "ChatGPT used 'to translate papers into English' (may be source papers rather than the manuscript)",
+               "923": "NotebookLM for the graphical abstract; second tool's purpose truncated"}}
