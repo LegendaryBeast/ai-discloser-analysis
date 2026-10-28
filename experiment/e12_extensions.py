@@ -194,8 +194,50 @@ def study2_forward():
                             "lo": share[y] - exp - 1.96 * se, "hi": share[y] - exp + 1.96 * se}
         d = rows["2026b"]["excess"] - rows["2026a"]["excess"]
         se = math.sqrt(sum(share[y] * (1 - share[y]) / len(odd[y]) for y in ("2026a", "2026b")))
-        out[name] = {"excess": rows, "late_minus_early": {"b": d, "lo": d - 1.96 * se, "hi": d + 1.96 * se}}
+        out[name] = {"excess": rows, "late_minus_early": {"b": d, "lo": d - 1.96 * se, "hi": d + 1.96 * se},
+                     "selection_gain": share["2026a"] - share[2025], "continuation": share["2026b"] - share["2026a"]}
     return out
+
+
+def study2_momentum():
+    """Pre-LLM benchmark for the forward test: how much do words selected for rising over one interval keep rising
+    for reasons unrelated to LLMs (topic and format trends)? Words are selected on the derivation halves for their
+    rise from year a to year b (same rule as the forward list, same number of rare forms) and evaluated on the
+    held-out halves in year b and the following year c. Rare = below 1% document frequency in year a."""
+    import sys
+    from collections import Counter
+    sys.path.insert(0, "../marker_list")
+    from m6_lexicon2026 import AI_TOPIC
+    from m2_excess import MIN_RATIO, MIN_GAP, MIN_DOCS
+    v1 = json.load(open("../marker_list/marker_list_v1.json"))
+    v1all = set(v1["words"]) | set(v1["excluded_content_words"])
+    docs = {}
+    with gzip.open("../marker_list/corpus.jsonl.gz", "rt") as f:
+        for line in f:
+            r = json.loads(line)
+            if r["year"] <= 2022:
+                docs.setdefault((r["year"], int(r["pmid"]) % 2), []).append(set(TOKEN.findall(r["abstract"].lower())))
+    cnt = {k: Counter(w for s in v for w in s) for k, v in docs.items()}
+    share = lambda W, y: float(np.mean([bool(s & W) for s in docs[(y, 1)]]))
+    out = {}
+    for a, b, c in ((2019, 2020, 2021), (2020, 2021, 2022)):
+        ca, cb, na, nb = cnt[(a, 0)], cnt[(b, 0)], len(docs[(a, 0)]), len(docs[(b, 0)])
+        rising = [w for w, k in cb.items() if k >= MIN_DOCS and w.isalpha() and w not in AI_TOPIC and w not in v1all
+                  and k / nb - ca.get(w, 0) / na >= MIN_GAP and (w not in ca or (k / nb) / (ca[w] / na) >= MIN_RATIO)]
+        ra, nra = cnt[(a, 1)], len(docs[(a, 1)])
+        rare = [w for w in rising if ra.get(w, 0) / nra < 0.01]
+        gain = lambda w: cb.get(w, 0) / nb - ca.get(w, 0) / na
+        W = set(sorted(rare, key=gain, reverse=True)[:N_MATCH])
+        s = {y: share(W, y) for y in (a, b, c)}
+        se = lambda y1, y2: math.sqrt(sum(s[y] * (1 - s[y]) / len(docs[(y, 1)]) for y in (y1, y2)))
+        out[f"{a}-{b}"] = {"n_rising": len(rising), "n_words": len(W), "share": {str(y): v for y, v in s.items()},
+                           "selection_gain": s[b] - s[a], "continuation": s[c] - s[b],
+                           "continuation_ci": [s[c] - s[b] - 1.96 * se(b, c), s[c] - s[b] + 1.96 * se(b, c)],
+                           "examples": sorted(W, key=gain, reverse=True)[:8]}
+    return out
+
+
+N_MATCH = 159  # rare forms in the frozen lexicon (study2 n_words["frozen"]); set from study2 in main()
 
 
 def table(res):
@@ -225,7 +267,10 @@ def main():
     L26 = json.load(open("../marker_list/lexicon_2026.json"))
     df["rising"] = E.lex_rate(df, L26["rising_2026"])
     df["rising_z"] = I.zscore_on_main(df, "rising")
+    global N_MATCH
     res = {"study1": study1(df), "study2": study2(), "study2_forward": study2_forward()}
+    N_MATCH = res["study2"]["n_words"]["frozen"]
+    res["study2_momentum"] = study2_momentum()
     json.dump(res, open("extensions_results.json", "w"), indent=1, default=float)
     table(res)
     s1 = res["study1"]
@@ -244,7 +289,11 @@ def main():
     fw = res["study2_forward"]
     print("forward", fw["n_rising"], fw["n_words"], fw["n_docs"], fw["examples"])
     for k in ("frozen", "forward"):
-        print(k, {y: round(v["excess"], 3) for y, v in fw[k]["excess"].items()}, fw[k]["late_minus_early"])
+        print(k, {y: round(v["excess"], 3) for y, v in fw[k]["excess"].items()}, fw[k]["late_minus_early"],
+              "gain", round(fw[k]["selection_gain"], 3), "continuation", round(fw[k]["continuation"], 3))
+    for k, v in res["study2_momentum"].items():
+        print("pre-LLM momentum", k, v["n_rising"], v["n_words"], {y: round(x, 3) for y, x in v["share"].items()},
+              "gain", round(v["selection_gain"], 3), "continuation", round(v["continuation"], 3), v["examples"])
 
 
 if __name__ == "__main__":

@@ -55,6 +55,7 @@ def load():
     clamp = lambda d: min(max((d.year, d.month), PERIODS[0][1]), PERIODS[-1][2])  # e.g. one 2027 issue date -> last period
     df["period"] = df["date"].map(lambda d: next(n for n, a, b in PERIODS if a <= clamp(d) <= b))
     df["early"] = (df["cohort"] == "2024-25").astype(int)
+    df["english_author"] = df["country"].isin(E.ENGLISH).astype(int)  # as in e10, for all three samples
     return df
 
 
@@ -119,6 +120,52 @@ def decay(df):
         se = math.sqrt(V[0, 0])
         out["trend_phrasing_adjusted"][y] = {"b": float(b[0]), "lo": float(b[0] - 1.96 * se), "hi": float(b[0] + 1.96 * se),
                                              "p": float(2 * norm.sf(abs(b[0] / se)))}
+    return out
+
+
+def article_types(df):
+    """(discloser, control) article type of each pair: main sample from revision_pairs.csv, replication samples from
+    the article-type attribute of the cached full-text XML."""
+    from e8_verify import fulltext
+    P = pd.read_csv("revision_pairs.csv", index_col=0)
+    out = {int(k): (r.disc_type, r.ctrl_type) for k, r in P.iterrows()}
+    for suf, off in (("", 10000), ("2026", 20000)):
+        for k, p in enumerate(json.load(open(f"replication{suf}_units.json"))):
+            if off + k in set(df["pair"]):
+                out[off + k] = tuple(fulltext(p[g]["pmcid"])[1] if p[g].get("pmcid") else None for g in ("disc", "ctrl"))
+    return out
+
+
+def trend_fit(d, y, english=False):
+    """Linear trend of the discloser excess in years since Jan 2024, optionally with English-country x wave terms."""
+    d = d.dropna(subset=[y])
+    w1, w3, t = (d.wave == "W1").astype(float), (d.wave == "W3").astype(float), d["t_years"]
+    x = d.assign(d_w3_t=d.d_w3 * t, d_w1_t=d.d_w1 * t, w1_t=w1 * t, w3_t=w3 * t, W1=w1, W3=w3,
+                 log_na=np.log(d.n_authors), log_nt=np.log(d.n_tokens))
+    cols = ["d_w3_t", "d_w3", "d_w1", "W1", "W3", "log_na", "structured", "log_nt", "d_w1_t", "w1_t", "w3_t"]
+    if english:
+        x = x.assign(W1e=w1 * d.english_author, W3e=w3 * d.english_author); cols += ["W1e", "W3e"]
+    b, V = E.fe_fit(x, y, cols)
+    se = math.sqrt(V[0, 0])
+    return {"b": float(b[0]), "lo": float(b[0] - 1.96 * se), "hi": float(b[0] + 1.96 * se), "p": float(2 * norm.sf(abs(b[0] / se)))}
+
+
+def lexicon_free_checks(df):
+    """Do the lexicon-free differences survive the two alternatives most likely to produce them: article type (more
+    reviews among disclosers) and language background (human editing)? Cohort estimates and decay trends, all
+    samples pooled, in pairs whose index papers are both research articles, with English-country x wave terms."""
+    T = article_types(df)
+    both = df["pair"].map(lambda k: T.get(int(k), (None, None)) == ("research-article", "research-article"))
+    out = {"n_pairs_research": int(df.loc[both, "pair"].nunique()), "n_pairs": int(df.pair.nunique()),
+           "n_typed": int(df["pair"].map(lambda k: None not in T.get(int(k), (None, None))).groupby(df["pair"]).first().sum())}
+    for lab, sub, eng in (("all", df, False), ("country", df, True), ("research", df[both], False),
+                          ("research_country", df[both], True)):
+        kw = dict(extra=" + C(wave):english_author") if eng else {}
+        out[lab] = {"n_pairs": int(sub.pair.nunique())}
+        for y in ("mwi", "mtld", "flesch", "drift"):
+            out[lab][y] = {"2024-25": E.fit(sub[sub.cohort == "2024-25"], y + "_z", **kw)["d_w3"],
+                           "2026": E.fit(sub[sub.cohort == "2026"], y + "_z", **kw)["d_w3"],
+                           "trend": trend_fit(sub, y + "_z", eng)}
     return out
 
 
@@ -250,6 +297,7 @@ def main():
     res["transfer"] = transfer(df)
     res["rising_placebo"] = rising_placebo(df, L26["rising_2026"])
     res["breakdown"] = breakdown(df)
+    res["lexicon_free_checks"] = lexicon_free_checks(df)
     # cohorts use the journal issue year (Europe PMC pubYear); the decay periods use the first online date
     u = df.drop_duplicates("pair")
     by_date = np.where(u["date"].map(lambda d: d.year) <= 2025, "2024-25", "2026")
