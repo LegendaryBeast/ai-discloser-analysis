@@ -437,6 +437,29 @@ def decay():
     ax.legend(frameon=False, fontsize=5.9, loc="upper right", handlelength=1.6, borderaxespad=0.1)
     fig.tight_layout(); save(fig, "fig_decay")
 
+def prevalence():
+    """Study 2: excess share of held-out PubMed abstracts containing >=1 rare marker word, frozen vs refreshed lexicon."""
+    f = os.path.join(EXP, "extensions_results.json")
+    if not os.path.exists(f):
+        return
+    S = json.load(open(f))["study2"]
+    yrs = ["2024", "2025", "2026"]
+    S3 = "#1baf7a"
+    fig, ax = plt.subplots(figsize=(COL_W, 2.1))
+    for k, lab, c in (("frozen", "Frozen 2024–25 lexicon", S2), ("refreshed_matched", "Refreshed 2025–26 lexicon", S3)):
+        e = [S[k]["excess"][y] for y in yrs]
+        v = [100 * x["excess"] for x in e]
+        ax.errorbar(range(3), v, yerr=[[100 * (x["excess"] - x["lo"]) for x in e], [100 * (x["hi"] - x["excess"]) for x in e]],
+                    color=c, marker="o", ms=4, lw=1.8, capsize=0, label=lab)
+        for i, val in enumerate(v):
+            ax.text(i + 0.08, val, f"{val:.1f}", fontsize=6.2, color=INK, va="center")
+    ax.set_xticks(range(3), yrs); ax.set_xlim(-0.3, 2.45)
+    ax.set_ylabel("Excess share of abstracts (%)", fontsize=6.8)
+    ax.yaxis.grid(True, color=GRID, lw=0.5); ax.set_axisbelow(True)
+    ax.legend(frameon=False, fontsize=6.3, loc="lower right")
+    fig.tight_layout(); save(fig, "fig_prevalence")
+
+
 if __name__ == "__main__":
     retention(); fulltext(); marker_trend()
-    groups(); cohort_forest(); placebo(); words(); refresh(); methodology(); descriptor(); decay()
+    groups(); cohort_forest(); placebo(); words(); refresh(); methodology(); descriptor(); decay(); prevalence()

@@ -19,6 +19,11 @@ echo "[$(date)] E10: all estimates and tables"
 python3 e10_revision.py > e10.log 2>&1
 echo "[$(date)] E11: decay curve, temporal transfer, sensitivity"
 python3 e11_impact.py > e11.log 2>&1
+echo "[$(date)] E12: model generation and prevalence"
+python3 e12_extensions.py > e12.log 2>&1
+if [ -f human_check/human_check_results.json ] || ls human_check/*_sheet.csv >/dev/null 2>&1; then
+    python3 human_check.py score > /dev/null 2>&1 || true   # agreement, once the sheets are filled in
+fi
 
 cd "$DIR/../paper"
 echo "[$(date)] Figures (and, where the manuscript is present, numbers.tex and the PDF)"

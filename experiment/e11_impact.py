@@ -47,6 +47,7 @@ def load():
         m["sample"] = sample
         parts.append(m)
     df = pd.concat(parts, ignore_index=True)
+    df["cohort"] = df["cohort"].astype(str)  # the 2026 replication file stores the cohort as a number
     assert df["text"].notna().all()
     df["date"] = df["pair"].map(lambda k: info[k][0])
     df["query"] = df["pair"].map(lambda k: info[k][1])
