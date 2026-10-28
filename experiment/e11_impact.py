@@ -250,6 +250,14 @@ def main():
     res["transfer"] = transfer(df)
     res["rising_placebo"] = rising_placebo(df, L26["rising_2026"])
     res["breakdown"] = breakdown(df)
+    # cohorts use the journal issue year (Europe PMC pubYear); the decay periods use the first online date
+    u = df.drop_duplicates("pair")
+    by_date = np.where(u["date"].map(lambda d: d.year) <= 2025, "2024-25", "2026")
+    cross = u["cohort"].to_numpy() != by_date
+    early_date = df["pair"].isin(u.loc[by_date == "2024-25", "pair"])
+    res["cohort_by_date"] = {"n_cross": int(cross.sum()), "n_pairs": int(len(u)),
+                             "n_2024_issue": int((u["cohort"] == "2024-25").sum()), "n_2024_25_online": int((by_date == "2024-25").sum()),
+                             "mwi_2024_25": E.fit(df[early_date], "mwi_z")["d_w3"], "mwi_2026": E.fit(df[~early_date], "mwi_z")["d_w3"]}
     json.dump(res, open("impact_results.json", "w"), indent=1, default=float)
     tables(res)
     print(json.dumps({k: res[k] for k in ("n_pairs", "pairs_by_sample", "breakdown", "rising_placebo")}, indent=1, default=float))

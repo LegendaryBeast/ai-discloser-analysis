@@ -126,6 +126,78 @@ def study2():
     return out
 
 
+def sampled_days(path="../marker_list/population_2026.jsonl.gz"):
+    """Day index (0-9) of each record of the 2026 benchmark sample. m5 writes the ten sampled Entrez dates in
+    chronological order, and PMIDs are assigned in order of entry, so a new day starts where the running median
+    PMID jumps."""
+    p = [int(json.loads(line)["pmid"]) for line in gzip.open(path, "rt")]
+    w, starts = 250, [0]
+    med = [np.median(p[i:i + w]) for i in range(0, len(p), w)]
+    for k in range(1, len(med)):
+        if abs(med[k] - med[k - 1]) > 20000:
+            b = k * w  # refine the boundary to the record where PMIDs move to the next day's range
+            mid = (med[k] + med[k - 1]) / 2
+            starts.append(next(i for i in range(b - w, b + w) if all(x > mid for x in p[i:i + 50])))
+    assert len(starts) == 10, starts
+    return np.searchsorted(starts, np.arange(len(p)), side="right") - 1
+
+
+def study2_forward():
+    """Forward test of the refreshed prevalence series. The study2 refreshed list is selected for rising from 2025
+    to 2026, so its 2025->2026 rise holds by construction. Here the list is derived only from the first five sampled
+    days of 2026 (13 Jan - 11 May; m6 rule: ratio >= 1.5, gap >= 0.0005, >= 30 documents vs 2025, no v1 candidate,
+    no AI-topic word, no index paper; even PMIDs) and evaluated on the held-out odd PMIDs of the last five days
+    (29 May - 21 Sep), which played no part in selecting it."""
+    import sys
+    sys.path.insert(0, "../marker_list")
+    from m6_lexicon2026 import AI_TOPIC, index_pmids
+    from m2_excess import MIN_RATIO, MIN_GAP, MIN_DOCS
+    day = sampled_days()
+    skip = index_pmids()
+    v1 = json.load(open("../marker_list/marker_list_v1.json"))
+    v1all = set(v1["words"]) | set(v1["excluded_content_words"])
+    docs = {}  # (period, half) -> list of token sets
+    with gzip.open("../marker_list/corpus.jsonl.gz", "rt") as f:
+        for line in f:
+            r = json.loads(line)
+            docs.setdefault((r["year"], int(r["pmid"]) % 2), []).append(set(TOKEN.findall(r["abstract"].lower())))
+    with gzip.open("../marker_list/population_2026.jsonl.gz", "rt") as f:
+        for k, line in enumerate(f):
+            r = json.loads(line)
+            if r["pmid"] in skip:
+                continue
+            per = "2026a" if day[k] < 5 else "2026b"
+            docs.setdefault((per, int(r["pmid"]) % 2), []).append(set(TOKEN.findall(r["abstract"].lower())))
+    count = lambda ds: {w: c for w, c in __import__("collections").Counter(w for s in ds for w in s).items()}
+    c25, c26 = count(docs[(2025, 0)]), count(docs[("2026a", 0)])
+    n25, n26 = len(docs[(2025, 0)]), len(docs[("2026a", 0)])
+    rising = [w for w, c in c26.items() if c >= MIN_DOCS and w.isalpha() and w not in AI_TOPIC and w not in v1all
+              and c / n26 - c25.get(w, 0) / n25 >= MIN_GAP and (w not in c25 or (c / n26) / (c25[w] / n25) >= MIN_RATIO)]
+    odd = {y: docs[(y, 1)] for y in (2021, 2022, 2024, 2025, "2026a", "2026b")}
+    df22 = count(odd[2022]); n22 = len(odd[2022])
+    rare = lambda ws: sorted(w for w in ws if df22.get(w, 0) / n22 < 0.01)
+    fr = rare(v1["words"])
+    gain = lambda w: c26.get(w, 0) / n26 - c25.get(w, 0) / n25
+    fwd = sorted(sorted(rare(rising), key=gain, reverse=True)[:len(fr)])
+    out = {"n_rising": len(rising), "n_words": len(fr), "n_docs": {str(y): len(v) for y, v in odd.items()},
+           "windows": {"2026a": "13 Jan - 11 May 2026", "2026b": "29 May - 21 Sep 2026"},
+           "examples": sorted(fwd, key=gain, reverse=True)[:12]}
+    for name, ws in (("frozen", fr), ("forward", fwd)):
+        W = set(ws)
+        share = {y: float(np.mean([bool(s & W) for s in v])) for y, v in odd.items()}
+        slope = max(share[2022] - share[2021], 0)
+        rows = {}
+        for y, t in ((2024, 2024), (2025, 2025), ("2026a", 2026.2), ("2026b", 2026.6)):
+            exp = share[2022] + slope * (t - 2022)
+            se = math.sqrt(share[y] * (1 - share[y]) / len(odd[y]))
+            rows[str(y)] = {"observed": share[y], "expected": exp, "excess": share[y] - exp,
+                            "lo": share[y] - exp - 1.96 * se, "hi": share[y] - exp + 1.96 * se}
+        d = rows["2026b"]["excess"] - rows["2026a"]["excess"]
+        se = math.sqrt(sum(share[y] * (1 - share[y]) / len(odd[y]) for y in ("2026a", "2026b")))
+        out[name] = {"excess": rows, "late_minus_early": {"b": d, "lo": d - 1.96 * se, "hi": d + 1.96 * se}}
+    return out
+
+
 def table(res):
     S = res["study1"]
     fmt = lambda e: "--" if e is None else (f"{e['b']:.2f} [{e['lo']:.2f}, {e['hi']:.2f}]").replace("-", "\\ensuremath{-}")
@@ -153,7 +225,7 @@ def main():
     L26 = json.load(open("../marker_list/lexicon_2026.json"))
     df["rising"] = E.lex_rate(df, L26["rising_2026"])
     df["rising_z"] = I.zscore_on_main(df, "rising")
-    res = {"study1": study1(df), "study2": study2()}
+    res = {"study1": study1(df), "study2": study2(), "study2_forward": study2_forward()}
     json.dump(res, open("extensions_results.json", "w"), indent=1, default=float)
     table(res)
     s1 = res["study1"]
@@ -169,6 +241,10 @@ def main():
     for k in ("frozen", "refreshed", "refreshed_matched"):
         print(k, {y: (round(v["observed"], 3), round(v["excess"], 3)) for y, v in s2[k]["excess"].items()})
     print("matched examples", s2["matched_examples"])
+    fw = res["study2_forward"]
+    print("forward", fw["n_rising"], fw["n_words"], fw["n_docs"], fw["examples"])
+    for k in ("frozen", "forward"):
+        print(k, {y: round(v["excess"], 3) for y, v in fw[k]["excess"].items()}, fw[k]["late_minus_early"])
 
 
 if __name__ == "__main__":
