@@ -1,7 +1,7 @@
 """E10 (revision): every estimate reported in the revised manuscript, on the audited analysis sample.
 Inputs: dataset.csv, discloser/control units, e8_verify.json, audit_v2.json, replication datasets (if present).
 Outputs: revision_results.json, revision_metrics.csv and LaTeX tables in ../paper/tables/."""
-import json, math, os, re, warnings
+import csv, json, math, os, re, warnings
 import numpy as np, pandas as pd
 import statsmodels.formula.api as smf
 from scipy.stats import norm
@@ -493,6 +493,19 @@ def main():
                 print("robustness skipped:", lab, name, ex)
                 rob[lab][name] = None
     res["robustness"] = rob
+
+    # sensitivity to the human re-check (human_check.py): put back the pairs whose exclusion the re-check disputed
+    hc = "human_check/human_check_results.json"
+    if os.path.exists(hc) and "disclosure" in json.load(open(hc)):
+        key = {r["item"]: r for r in csv.DictReader(open("human_check/_key_disclosure.csv"))}
+        disputed = {key[d["item"]]["id"] for d in json.load(open(hc))["disclosure"]["disagreements"] if d["audit"] == "exclude"}
+        add = [k for k in P.index if f"paper{P.loc[k, 'paper_index']}" in disputed and not P.loc[k, "dup_ctrl"]
+               and not P.loc[k, "ctrl_discloses"]]
+        d2, _ = prep(full[full["pair"].isin(list(keep) + add)].reset_index(drop=True), ref)
+        d2["cohort"] = d2["pair"].map(P["cohort"])
+        res["human_check_sensitivity"] = {"pairs_added": len(add), **{
+            n: fit(x)["d_w3"] | {"n_pairs": int(x.pair.nunique())}
+            for n, x in (("pooled", d2), ("2024-25", d2[d2.cohort == "2024-25"]), ("2026", d2[d2.cohort == "2026"]))}}
 
     # secondary (lexicon-free) outcomes under the checks most likely to matter for them
     sec = {}

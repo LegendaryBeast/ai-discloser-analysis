@@ -1,0 +1,34 @@
+{
+ "disclosure": {
+  "n": 150,
+  "agreement": 0.9666666666666667,
+  "kappa": 0.7203579418344517,
+  "disagreements": [
+   {
+    "item": "12",
+    "audit": "exclude",
+    "human": "keep"
+   },
+   {
+    "item": "74",
+    "audit": "exclude",
+    "human": "keep"
+   },
+   {
+    "item": "91",
+    "audit": "exclude",
+    "human": "keep"
+   },
+   {
+    "item": "112",
+    "audit": "exclude",
+    "human": "keep"
+   },
+   {
+    "item": "116",
+    "audit": "exclude",
+    "human": "keep"
+   }
+  ]
+ }
+}

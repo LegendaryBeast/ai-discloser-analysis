@@ -84,12 +84,17 @@ def score():
     sheet = [r for r in csv.DictReader(open(f"{OUT}/disclosure_sheet.csv")) if r["your_decision (keep/exclude)"].strip()]
     h = [r["your_decision (keep/exclude)"].strip().lower() for r in sheet]
     ai = ["exclude" if key[r["item"]]["audit_decision"] == "exclude" else "keep" for r in sheet]  # ambiguous counts as keep
-    po, k = kappa(ai, h)
+    res = {}
+    if sheet:
+        po, k = kappa(ai, h)
+        res["disclosure"] = {"n": len(sheet), "agreement": po, "kappa": k,
+                             "disagreements": [{"item": r["item"], "audit": a_, "human": h_}
+                                               for r, a_, h_ in zip(sheet, ai, h) if a_ != h_]}
     lex = {r["word"]: r["decision"] for r in csv.DictReader(open("../marker_list/classification.csv"))}
     ls = [r for r in csv.DictReader(open(f"{OUT}/lexicon_sheet.csv")) if r["your_label (style/content)"].strip()]
-    lpo, lk = kappa([lex[r["word"]] for r in ls], [r["your_label (style/content)"].strip().lower() for r in ls])
-    res = {"disclosure": {"n": len(sheet), "agreement": po, "kappa": k},
-           "lexicon": {"n": len(ls), "agreement": lpo, "kappa": lk}}
+    if ls:
+        lpo, lk = kappa([lex[r["word"]] for r in ls], [r["your_label (style/content)"].strip().lower() for r in ls])
+        res["lexicon"] = {"n": len(ls), "agreement": lpo, "kappa": lk}
     json.dump(res, open(f"{OUT}/human_check_results.json", "w"), indent=1)
     print(json.dumps(res, indent=1))
 
