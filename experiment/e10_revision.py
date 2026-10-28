@@ -41,6 +41,8 @@ STRICT = [w for w in MARK if float(LEX["word_stats"][w]["ratio2024"]) >= 2 and f
 POLYSEMOUS = ["hold", "holds", "lies", "marks", "stays", "stands", "serves", "serving", "presents", "pose", "posed",
               "poses", "posing", "offer", "offers", "offering", "linked", "raising", "promise", "creation", "foundation"]
 ENGLISH = {"US", "GB", "CA", "AU", "NZ", "IE"}
+_HC = "human_check/human_check_results.json"
+HUMAN_STYLE = json.load(open(_HC)).get("lexicon", {}).get("human_style_words", []) if os.path.exists(_HC) else []
 OUT = ["mwi", "sent_len", "sent_sd", "mtld", "flesch", "drift"]
 LABEL = {"mwi": "Marker-word index", "sent_len": "Sentence length", "sent_sd": "Sentence-length SD",
          "mtld": "Lexical diversity (MTLD)", "flesch": "Flesch reading ease", "drift": "Function-word self-drift"}
@@ -449,6 +451,8 @@ def main():
     df["mwi_strict_z"] = zr(lex_rate(df, STRICT))
     df["mwi_all347_z"] = zr(lex_rate(df, MARK + CONTENT))
     df["mwi_nopoly_z"] = zr(lex_rate(df, [w for w in MARK if w not in POLYSEMOUS]))
+    if HUMAN_STYLE:  # style words as classified in the blind human re-check (human_check.py)
+        df["mwi_human_z"] = zr(lex_rate(df, HUMAN_STYLE))
     df["content_z"] = zr(lex_rate(df, CONTENT))
     lo_, hi_ = df["mwi"].quantile([0.01, 0.99])
     df["mwi_wins_z"] = zr(df["mwi"].clip(lo_, hi_))
@@ -476,6 +480,8 @@ def main():
              (f"Strict lexicon ({len(STRICT)} words)", lambda s: fit(s, "mwi_strict_z")),
              (f"Polysemous forms dropped ({len(MARK) - len([w for w in MARK if w not in POLYSEMOUS])} words)", lambda s: fit(s, "mwi_nopoly_z")),
              ("All 347 candidates (no coder)", lambda s: fit(s, "mwi_all347_z")),
+             *([(f"Style words per human re-check ({len(HUMAN_STYLE)} words)", lambda s: fit(s, "mwi_human_z"))]
+               if HUMAN_STYLE else []),
              ("Winsorised MWI (1st/99th pct.)", lambda s: fit(s, "mwi_wins_z")),
              ("First-authored pre-period texts", None)]
     rob = {}

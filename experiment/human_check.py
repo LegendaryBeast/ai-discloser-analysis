@@ -94,7 +94,11 @@ def score():
     ls = [r for r in csv.DictReader(open(f"{OUT}/lexicon_sheet.csv")) if r["your_label (style/content)"].strip()]
     if ls:
         lpo, lk = kappa([lex[r["word"]] for r in ls], [r["your_label (style/content)"].strip().lower() for r in ls])
-        res["lexicon"] = {"n": len(ls), "agreement": lpo, "kappa": lk}
+        pairs = [(lex[r["word"]], r["your_label (style/content)"].strip().lower(), r["word"]) for r in ls]
+        res["lexicon"] = {"n": len(ls), "agreement": lpo, "kappa": lk,
+                          "style_to_content": [w for a, b, w in pairs if a == "style" and b == "content"],
+                          "content_to_style": [w for a, b, w in pairs if a == "content" and b == "style"],
+                          "human_style_words": sorted(w for a, b, w in pairs if b == "style")}
     json.dump(res, open(f"{OUT}/human_check_results.json", "w"), indent=1)
     print(json.dumps(res, indent=1))
 
