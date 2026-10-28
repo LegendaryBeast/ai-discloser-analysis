@@ -405,6 +405,38 @@ def descriptor():
     save(fig, "fig_data")
 
 
+def decay():
+    """Central figure: discloser excess by period of the index paper for the frozen lexicon, the 2025-26 rising-word
+    lexicon and lexical diversity, with the fitted linear trend of the frozen lexicon (experiment/impact_results.json).
+    Periods are evenly spaced; the trend is evaluated at each period's midpoint."""
+    f = os.path.join(EXP, "impact_results.json")
+    if not os.path.exists(f):
+        return
+    I = json.load(open(f))
+    per = I["decay"]["periods"]
+    names = list(per)
+    mids = {"2024": 2024.5, "2025 H1": 2025.25, "2025 H2": 2025.75, "2026 Q1": 2026.125, "2026 Q2": 2026.375,
+            "2026 Q3–Q4": 2026.75}
+    x = np.arange(len(names))
+    S3 = "#1baf7a"
+    fig, ax = plt.subplots(figsize=(COL_W, 2.45))
+    ax.axhline(0, color=INK2, lw=0.8)
+    L = I["decay"]["mwi_line"]
+    fitted = [L["excess_jan2024"] + L["slope_per_year"] * (mids[n] - 2024.0) for n in names]
+    ax.plot(x, fitted, color=S2, lw=0.9, ls=(0, (3, 2)), alpha=0.85, label="Linear trend, frozen lexicon")
+    for key, lab, c, off in (("mwi", "Frozen 2024–25 lexicon", S2, -0.08), ("rising", "Words rising 2025–26", S3, 0.0),
+                             ("mtld", "Lexical diversity (no lexicon)", S1, 0.08)):
+        b = np.array([per[n][key]["b"] for n in names]); lo = np.array([per[n][key]["lo"] for n in names])
+        hi = np.array([per[n][key]["hi"] for n in names])
+        ax.errorbar(x + off, b, yerr=[b - lo, hi - b], color=c, marker="o", ms=3.6, lw=1.6, capsize=0, elinewidth=1,
+                    label=lab)
+    ax.set_xticks(x, [f"{n.replace(' ', chr(10))}" + f"{chr(10)}n={per[n]['n_pairs']}" for n in names], fontsize=6.1)
+    ax.set_ylim(-1.0, 3.0)
+    ax.set_ylabel("Discloser excess $\\hat\\beta_3$ (SD)", fontsize=6.8)
+    ax.yaxis.grid(True, color=GRID, lw=0.5); ax.set_axisbelow(True)
+    ax.legend(frameon=False, fontsize=5.9, loc="upper right", handlelength=1.6, borderaxespad=0.1)
+    fig.tight_layout(); save(fig, "fig_decay")
+
 if __name__ == "__main__":
     retention(); fulltext(); marker_trend()
-    groups(); cohort_forest(); placebo(); words(); refresh(); methodology(); descriptor()
+    groups(); cohort_forest(); placebo(); words(); refresh(); methodology(); descriptor(); decay()

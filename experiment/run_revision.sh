@@ -17,6 +17,8 @@ for s in "" 2026; do  # rebuild a replication dataset from its saved state only 
 done
 echo "[$(date)] E10: all estimates and tables"
 python3 e10_revision.py > e10.log 2>&1
+echo "[$(date)] E11: decay curve, temporal transfer, sensitivity"
+python3 e11_impact.py > e11.log 2>&1
 
 cd "$DIR/../paper"
 echo "[$(date)] Figures (and, where the manuscript is present, numbers.tex and the PDF)"
